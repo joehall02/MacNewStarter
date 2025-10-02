@@ -1,0 +1,6 @@
+Claude Code
+Npm
+Xcode
+Python3
+Pip
+Nano

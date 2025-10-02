@@ -1,0 +1,5 @@
+Vs Code
+Cursor
+Aerospace
+Firefox
+Docker
