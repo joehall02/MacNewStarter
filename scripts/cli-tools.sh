@@ -1,21 +1,16 @@
 #!/bin/bash
 
+source "$(dirname "$0")/../utils/helpers.sh"
+
 # Read the list of command line tools from the config file
-CLI_TOOLS_FILE="../config/cli-tools.txt"
+CLI_TOOLS_FILE="../lists/cli-tools.txt"
 
-# Check if the CLI tools file exists
-if [[ ! -f "$CLI_TOOLS_FILE" ]]; then
-    echo "CLI tools configuration file not found!"
-    exit 1
+# Install cli tools from the CLI_TOOLS_FILE file
+if [ -f "$CLI_TOOLS_FILE" ]; then
+    while IFS= read -r cli_tool; do
+        install_via_brew "$cli_tool"
+    done < "$CLI_TOOLS_FILE"
+    echo "CLI tools installation completed."
+else
+    echo "No cli-tools.txt file found."
 fi
-
-# Install each command line tool listed in the CLI tools file
-while IFS= read -r tool; do
-    echo "Installing $tool..."
-    if command -v "$tool" &> /dev/null; then
-        echo "$tool is already installed."
-    else
-        # Use Homebrew to install the tool
-        brew install "$tool"
-    fi
-done < "$CLI_TOOLS_FILE"

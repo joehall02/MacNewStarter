@@ -18,6 +18,23 @@ install_via_brew() {
     fi
 }
 
+install_brew_gui_app() {
+    app="$1"
+
+    # Check if the app exists in Homebrew
+    if ! brew info "$app" >/dev/null 2>&1; then
+        echo "App '$app' not found in Homebrew."
+        return 1
+    fi
+
+    if ! brew list --cask | grep -q "^$app\$"; then
+        echo "Installing $app..."
+        brew install --cask "$app"
+    else
+        echo "$app is already installed."
+    fi
+}
+
 # Utility function to create a symlink
 create_symlink() {
     local source="$1"

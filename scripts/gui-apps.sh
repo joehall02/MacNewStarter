@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Install GUI applications using Homebrew
-if ! command -v brew &> /dev/null; then
-    echo "Homebrew is not installed. Please install Homebrew first."
-    exit 1
+source "$(dirname "$0")/../utils/helpers.sh"
+
+GUI_APPS_FILE="../lists/gui-apps.txt"
+
+# Install gui apps from the GUI_APPS_FILE file
+if [ -f "$GUI_APPS_FILE" ]; then
+    while IFS= read -r app; do
+        install_brew_gui_app "$app"
+    done < "$GUI_APPS_FILE"
+    echo "GUI applications installation completed."
+else
+    echo "No gui-apps.txt file found"
 fi
-
-# Read the list of GUI applications from the config file
-while IFS= read -r app; do
-    if ! brew list --cask | grep -q "^$app\$"; then
-        echo "Installing $app..."
-        brew install --cask "$app"
-    else
-        echo "$app is already installed."
-    fi
-done < ../config/gui-apps.txt
-
-echo "GUI applications installation completed."
