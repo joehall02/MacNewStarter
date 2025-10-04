@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 source "$(dirname "$0")/../utils/helpers.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -13,7 +12,7 @@ setup_dotfiles() {
     # Check if dotfile directory exists in project
     if [[ ! -d "$DOTFILE_DIR" ]]; then
         log_warning "Dotfile directory not found: $DOTFILE_DIR"
-        return 0
+        exit 0
     fi
     
     # Iterate through dotfiles in dotfiles/
@@ -23,24 +22,24 @@ setup_dotfiles() {
         
         # Check if source file exists in project
         if [[ -f "$source_file" ]]; then
-            create_symlink "$source_file" "$target_file"
+            create_dotfile_symlink "$source_file" "$target_file"
         else
             log_warning "Dotfile .$dotfile not found in $DOTFILES_DIR, skipping..."
         fi
     done
-    
-    log_success "Dotfiles setup completed"
 }
 
 main() {
     log_info "Starting dotfiles setup..."
     
-    setup_dotfiles
-    
-    log_success "🎉 Dotfiles setup completed!"
-    log_info "All changes to dotfiles will now be git tracked in this repository"
-    log_info "Dotfiles are stored in: $DOTFILES_DIR"
-    log_info "Home directory dotfiles are symlinked to the project"
+    if setup_dotfiles; then
+        log_success "🎉 Dotfiles setup completed!"
+        log_info "All changes to dotfiles will now be git tracked in this repository"
+        log_info "Dotfiles are stored in: $DOTFILES_DIR"
+        log_info "Home directory dotfiles are symlinked to the project"
+    else 
+        log_error "Dotfiles setup failed — missing or invalid directory."
+    fi
 }
 
 main "$@"

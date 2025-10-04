@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -e
 source "$(dirname "$0")/../utils/helpers.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -24,7 +23,7 @@ setup_config_files() {
     # Check if config directory exists in project
     if [[ ! -d "$CONFIG_DIR" ]]; then
         log_warning "Config directory not found: $CONFIG_DIR"
-        return 0
+        exit 0
     fi
     
     # Iterate through all directories and files in config/
@@ -67,19 +66,19 @@ setup_config_files() {
             log_success "Created config symlink: $target_config -> $source_config"
         fi
     done
-    
-    log_success "Config files setup completed"
 }
 
 main() {
     log_info "Starting config files setup..."
     
-    setup_config_files
-    
-    log_success "🎉 Config files setup completed!"
-    log_info "All changes to config files will now be git tracked in this repository"
-    log_info "Config files are stored in: $CONFIG_DIR"
-    log_info "~/.config files are symlinked to the project"
+    if setup_config_files; then
+        log_success "🎉 Config files setup completed!"
+        log_info "All changes to config files will now be git tracked in this repository"
+        log_info "Config files are stored in: $CONFIG_DIR"
+        log_info "~/.config files are symlinked to the project"
+    else
+        log_error "Configs setup failed - missing or invalid directory."
+    fi
 }
 
 main "$@"

@@ -4,12 +4,17 @@ source "$(dirname "$0")/../utils/helpers.sh"
 
 GUI_APPS_FILE="../lists/gui-apps.txt"
 
+# Check brew is installed
+if ! check_brew_is_installed; then
+    exit 1
+fi
+
 # Install gui apps from the GUI_APPS_FILE file
 if [ -f "$GUI_APPS_FILE" ]; then
     while IFS= read -r app; do
         install_brew_gui_app "$app"
     done < "$GUI_APPS_FILE"
-    echo "GUI applications installation completed."
+    log_success "🎉 GUI applications installation completed."
 else
-    echo "No gui-apps.txt file found"
+    log_error "No gui-apps.txt file found"
 fi

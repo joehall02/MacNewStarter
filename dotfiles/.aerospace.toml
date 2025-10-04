@@ -3,19 +3,19 @@
 # so it won't be run twice on AeroSpace restart
 
 after-startup-command = [
-    'exec-and-forget /usr/local/bin/borders style=round width=4.0 hidpi=off order=a active_color=0xff6f8fb4 inactive_color=0xff414550',
+    'exec-and-forget /opt/homebrew/bin/borders style=round width=4.0 hidpi=off order=a active_color=0xff6f8fb4 inactive_color=0xff414550',
 ]
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
-    '/usr/local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
-# after-startup-command = ['exec-and-forget /usr/local/bin/sketchybar --reload']
+# after-startup-command = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 # exec-on-workspace-change = [
 #     '/bin/bash',
 #     '-c',
-#     '/usr/local/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+#     '/opt/homebrew/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 # ]
 
 # Start AeroSpace at login
