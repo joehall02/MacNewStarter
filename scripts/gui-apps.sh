@@ -17,6 +17,7 @@ fi
 # Install gui apps from the GUI_APPS_FILE file
 if [ -f "$GUI_APPS_FILE" ]; then
     while IFS= read -r app; do
+        [[ -z "$app" || "$app" =~ ^# ]] && continue
         install_brew_gui_app "$app"
     done < "$GUI_APPS_FILE"
     log_success "🎉 GUI applications installation completed."

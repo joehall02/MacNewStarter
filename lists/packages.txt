@@ -1,11 +1,9 @@
-Vs Code
-Cursor
-Aerospace
-Firefox
-Docker
-Sketchybar
-Jankyborders
-Cmatrix
-Sl
-Pipes.sh
-Fastfetch
+tree
+sketchybar
+pipes-sh
+fastfetch
+cmatrix
+cbonsai
+borders
+sl
+asciiquarium

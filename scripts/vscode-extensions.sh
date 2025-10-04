@@ -17,6 +17,7 @@ fi
 # Install vscode-extensions from the VSCODE_EXTENSIONS_FILE file
 if [ -f "$VSCODE_EXTENSIONS_FILE" ]; then
     while IFS= read -r extension; do
+        [[ -z "$extension" || "$extension" =~ ^# ]] && continue
         install_vscode_extension "$extension"
     done < "$VSCODE_EXTENSIONS_FILE"
     log_success "🎉 VSCode extensions installation completed."

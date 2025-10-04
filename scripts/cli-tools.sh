@@ -19,6 +19,7 @@ fi
 # Install cli tools from the CLI_TOOLS_FILE file
 if [ -f "$CLI_TOOLS_FILE" ]; then
     while IFS= read -r cli_tool; do
+        [[ -z "$cli_tool" || "$cli_tool" =~ ^# ]] && continue
         install_via_brew "$cli_tool"
     done < "$CLI_TOOLS_FILE"
     log_success "🎉 CLI tools installation completed."

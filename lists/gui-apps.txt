@@ -1,5 +1,19 @@
-Vs Code
-Cursor
-Aerospace
-Firefox
-Docker
+firefox
+google-chrome
+spotify
+figma
+logi-options+
+linearmouse
+stats
+nikitabobko/tap/aerospace
+surfshark
+balenaetcher
+visual-studio-code
+cursor
+dbeaver-community
+postman
+docker-desktop
+iterm2
+arduino-ide
+obs
+homebrew/cask-fonts/font-meslo-lg-nerd-font

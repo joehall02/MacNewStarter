@@ -17,6 +17,7 @@ fi
 # Install additional packages from the PACKAGE_TOOLS_FILE file
 if [ -f "$PACKAGE_TOOLS_FILE" ]; then
     while IFS= read -r package; do
+        [[ -z "$package" || "$package" =~ ^# ]] && continue
         install_via_brew "$package"
     done < "$PACKAGE_TOOLS_FILE"
     log_success "🎉 Additional packages installation completed."

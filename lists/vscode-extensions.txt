@@ -1,0 +1,7 @@
+esbenp.prettier-vscode
+mechatroner.rainbow-csv
+tamasfe.even-better-toml
+naumovs.color-highlight
+shd101wyy.markdown-preview-enhanced
+tomoki1207.pdf
+zhuangtongfa.material-theme

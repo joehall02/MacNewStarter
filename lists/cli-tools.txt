@@ -1,6 +1,9 @@
-Claude Code
-Npm
-Xcode
-Python3
-Pip
-Nano
+nano
+nvm
+htop
+gh
+sqlite
+python@3.13
+imagemagick
+openjdk
+virtualenv
