@@ -4,9 +4,9 @@ source "$(dirname "$0")/../utils/helpers.sh"
 
 # Install Homebrew if missing
 if ! command -v brew &> /dev/null; then
+    # Confirm installation
     if ! confirm_installation "Homebrew"; then
-        log_error "Homebrew needed to proceed."
-        exit 1
+        exit 0
     fi
 
     log_info "Installing Homebrew..."

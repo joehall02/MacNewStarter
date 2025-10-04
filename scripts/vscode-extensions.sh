@@ -9,6 +9,11 @@ if ! check_vs_code_is_installed; then
     exit 1
 fi
 
+# Confirm installation
+if ! confirm_installation "VSCode extensions"; then
+    exit 0
+fi
+
 # Install vscode-extensions from the VSCODE_EXTENSIONS_FILE file
 if [ -f "$VSCODE_EXTENSIONS_FILE" ]; then
     while IFS= read -r extension; do

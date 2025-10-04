@@ -8,6 +8,11 @@ ZAP_DIR="$HOME/.local/share/zap"
 if [ -d "$ZAP_DIR" ]; then
     log_info "Zap is already installed at $ZAP_DIR"
 else
+    # Confirm installation
+    if ! confirm_installation "Zap Zsh plugin manager"; then
+        exit 0
+    fi
+
     log_info "Installing Zap Zsh plugin manager..."
     zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 

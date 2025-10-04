@@ -9,6 +9,11 @@ if ! check_brew_is_installed; then
     exit 1
 fi
 
+# Confirm installation
+if ! confirm_installation "Packages"; then
+    exit 0
+fi
+
 # Install additional packages from the PACKAGE_TOOLS_FILE file
 if [ -f "$PACKAGE_TOOLS_FILE" ]; then
     while IFS= read -r package; do
