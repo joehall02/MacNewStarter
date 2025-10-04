@@ -6,12 +6,12 @@ source "$(dirname "$0")/utils/helpers.sh"
 
 # Function to install xcode command line tools
 install_xcode_cli_tools() {
-    .scripts/xcode-cli-tools.sh
+    ./scripts/xcode-cli-tools.sh
 }
 
 # Function to install Homebrew
 install_homebrew() {
-    .scripts/homebrew.sh
+    ./scripts/homebrew.sh
 }
 
 # Function to install command line tools
@@ -41,7 +41,7 @@ setup_configs() {
 
 # Function to install VSCode extneions
 install_vscode_extensions() {
-    /scripts/vscode_extensions.sh
+    ./scripts/vscode-extensions.sh
 }
 
 # Function to install GUI applications

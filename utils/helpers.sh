@@ -60,7 +60,7 @@ install_via_brew() {
     fi
 
     # Install package if not already installed
-    if ! brew list -1 | grep -q "^$package1\$"; then
+    if ! brew list -1 | grep -q "^$package\$"; then
         log_info "Installing $package..."
         brew install "$package"
     else

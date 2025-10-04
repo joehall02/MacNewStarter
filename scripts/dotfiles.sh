@@ -10,15 +10,15 @@ setup_dotfiles() {
     log_info "Setting up dotfiles..."
     
     # Check if dotfile directory exists in project
-    if [[ ! -d "$DOTFILE_DIR" ]]; then
-        log_warning "Dotfile directory not found: $DOTFILE_DIR"
+    if [[ ! -d "$DOTFILES_DIR" ]]; then
+        log_warning "Dotfile directory not found: $DOTFILES_DIR"
         exit 0
     fi
     
     # Iterate through dotfiles in dotfiles/
     for dotfile in "$DOTFILES_DIR"/*; do
-        source_file="$DOTFILES_DIR/$dotfile"
-        target_file="$HOME/$dotfile"
+        source_file="$dotfile"
+        target_file="$HOME/$(basename "$dotfile")"
         
         # Check if source file exists in project
         if [[ -f "$source_file" ]]; then
