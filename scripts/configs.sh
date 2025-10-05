@@ -4,7 +4,7 @@ source "$(dirname "$0")/../utils/helpers.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-CONFIG_DIR="$PROJECT_ROOT/config"
+CONFIG_DIR="$PROJECT_ROOT/configs"
 HOME_CONFIG_DIR="$HOME/.config"
 
 setup_config_files() {
