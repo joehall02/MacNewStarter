@@ -1,6 +1,6 @@
 tree
-sketchybar
-borders
+FelixKratz/formulae/sketchybar
+FelixKratz/formulae/borders
 pipes-sh
 fastfetch
 cmatrix

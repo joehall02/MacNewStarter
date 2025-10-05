@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash
 
 source "$(dirname "$0")/../utils/helpers.sh"
 

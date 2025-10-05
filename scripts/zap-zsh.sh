@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/opt/homebrew/bin/bash
+
 source "$(dirname "$0")/../utils/helpers.sh"
 
 if ! check_bash_version; then
