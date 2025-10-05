@@ -2,7 +2,9 @@
 
 source "$(dirname "$0")/../utils/helpers.sh"
 
-check_bash_version
+if ! check_bash_version; then
+    exit 0
+fi
 
 # Get the directory of this script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"

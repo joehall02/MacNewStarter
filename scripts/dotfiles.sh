@@ -2,7 +2,9 @@
 
 source "$(dirname "$0")/../utils/helpers.sh"
 
-check_bash_version
+if ! check_bash_version; then
+    exit 0
+fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
