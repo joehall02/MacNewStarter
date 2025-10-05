@@ -6,6 +6,7 @@ source "$(dirname "$0")/utils/helpers.sh"
 if [[ "${BASH_VERSINFO[0]}" -lt 4 ]]; then
     log_warning "Warning: Bash 3 detected. Some features may not work optimally."
     log_warning "Run the Bash upgrade script or run everything to install a newer version via Homebrew."
+    echo
 fi
 
 # Function to install xcode command line tools

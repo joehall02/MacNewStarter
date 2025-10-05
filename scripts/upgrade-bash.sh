@@ -16,7 +16,7 @@ if ! check_bash_version; then
 
     BREW_BASH="$(brew --prefix)/bin/bash"
 
-    # Temporarily prioritize Homebrew Bash in PATH for this session
+    # Temporarily prioritise Homebrew Bash in PATH for this session
     export PATH="$(dirname "$BREW_BASH"):$PATH"
 
     # Verify that the new Bash is being used

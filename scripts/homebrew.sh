@@ -23,8 +23,9 @@ if ! command -v brew &> /dev/null; then
         exit 1
     fi
 
-    # Update PATH for current shell
-    eval "$($BREW_PATH shellenv)"
+    # Explicitly export Homebrew's bin to PATH for all subsequent scripts
+    export PATH="$(dirname "$BREW_PATH"):$PATH"
+    
     log_info "Homebrew path: $(which brew)"
     log_success "🎉 Homebrew installation completed"
 else
