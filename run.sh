@@ -1,8 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source "$(dirname "$0")/utils/helpers.sh"
 
 # Main installation script for macOS setup
+if [[ "${BASH_VERSINFO[0]}" -lt 4 ]]; then
+    log_warning "Warning: Bash 3 detected. Some features may not work optimally."
+    log_warning "Run the Bash upgrade script or run everything to install a newer version via Homebrew."
+fi
 
 # Function to install xcode command line tools
 install_xcode_cli_tools() {
@@ -12,6 +16,11 @@ install_xcode_cli_tools() {
 # Function to install Homebrew
 install_homebrew() {
     ./scripts/homebrew.sh
+}
+
+# Function to upgrade bash
+upgrade_bash() {
+    ./scripts/upgrade-bash.sh
 }
 
 # Function to install command line tools
@@ -58,14 +67,15 @@ echo "Enter one of the following numbers to get started:"
 echo "1 ) Install everything (Recommended)"
 echo "2 ) Install Xcode Command Line Tools"
 echo "3 ) Install Homebrew"
-echo "4 ) Install CLI Tools"
-echo "5 ) Install Packages"
-echo "6 ) Install GUI Apps"
-echo "7 ) Install VSCode Extensions"
-echo "8 ) Install Zap ZSH"
-echo "9 ) Setup Dotfiles"
-echo "10) Setup Configs"
-echo "11) Quit"
+echo "4 ) Upgrade Bash"
+echo "5 ) Install CLI Tools"
+echo "6 ) Install Packages"
+echo "7 ) Install GUI Apps"
+echo "8 ) Install VSCode Extensions"
+echo "9 ) Install Zap ZSH"
+echo "10) Setup Dotfiles"
+echo "11) Setup Configs"
+echo "12) Quit"
 echo
 
 # --- Read User Input ---
@@ -77,6 +87,7 @@ case "$choice" in
     1)
         install_xcode_cli_tools
         install_homebrew
+        upgrade_bash
         install_cli_tools
         install_packages
         install_gui_apps
@@ -87,14 +98,15 @@ case "$choice" in
         ;;
     2) install_xcode_cli_tools ;;
     3) install_homebrew ;;
-    4) install_cli_tools ;;
-    5) install_packages ;;
-    6) install_gui_apps ;;
-    7) install_vscode_extensions ;;
-    8) install_zap_zsh ;;
-    9) setup_dotfiles ;;
-    10) setup_configs ;;
-    11) 
+    4) upgrade_bash ;;
+    5) install_cli_tools ;;
+    6) install_packages ;;
+    7) install_gui_apps ;;
+    8) install_vscode_extensions ;;
+    9) install_zap_zsh ;;
+    10) setup_dotfiles ;;
+    11) setup_configs ;;
+    12) 
         echo "Exiting..."
         exit 0 ;;
     *)

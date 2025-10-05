@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Utility function for logging info
 log_info() {
@@ -18,6 +18,17 @@ log_warning() {
 # Utility function for logging errors
 log_error() {
     echo "🛑 [ERROR] $*"
+}
+
+# Utility function to check for minimum bash version 4.0
+check_bash_version() {
+    local min_major=4
+    local bash_major="${BASH_VERSINFO[0]:-0}"
+    if [ "$bash_major" -lt "$min_major" ]; then
+        echo $bash_major
+        log_error "This script requires bash version 4.0 or higher. Please install a newer bash (e.g., via Homebrew) and run with 'bash run.sh'." >&2
+        return 1
+    fi
 }
 
 # Utility function to ensure Homebrew CLI is available

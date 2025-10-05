@@ -2,6 +2,10 @@
 
 source "$(dirname "$0")/../utils/helpers.sh"
 
+if ! check_bash_version; then
+    exit 0
+fi
+
 # Get the directory of this script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
 GUI_APPS_FILE="$SCRIPT_DIR/../lists/gui-apps.txt"

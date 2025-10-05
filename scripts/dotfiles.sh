@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source "$(dirname "$0")/../utils/helpers.sh"
+
+check_bash_version
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
