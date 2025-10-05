@@ -20,17 +20,18 @@ setup_dotfiles() {
     fi
     
     # Iterate through dotfiles in dotfiles/
+    shopt -s dotglob  # enable glob to match hidden files
     for dotfile in "$DOTFILES_DIR"/*; do
         source_file="$dotfile"
         target_file="$HOME/$(basename "$dotfile")"
-        
-        # Check if source file exists in project
+
         if [[ -f "$source_file" ]]; then
             create_dotfile_symlink "$source_file" "$target_file"
         else
-            log_warning "Dotfile .$dotfile not found in $DOTFILES_DIR, skipping..."
+            log_warning "Dotfile $(basename "$dotfile") not found in $DOTFILES_DIR, skipping..."
         fi
     done
+    shopt -u dotglob  # restore default behavior
 }
 
 main() {
