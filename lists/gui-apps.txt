@@ -1,13 +1,20 @@
+# Browsers
 firefox
 google-chrome
+
+# Entertainment
 spotify
-figma
+
+# Utilities
 logi-options+
 linearmouse
-stats
 nikitabobko/tap/aerospace
+stats
 surfshark
 balenaetcher
+obs
+
+# Developer
 visual-studio-code
 cursor
 dbeaver-community
@@ -15,5 +22,10 @@ postman
 docker-desktop
 iterm2
 arduino-ide
-obs
+proxyman
+figma
+sourcetree
+xcodes
+
+# Fonts
 homebrew/cask-fonts/font-meslo-lg-nerd-font

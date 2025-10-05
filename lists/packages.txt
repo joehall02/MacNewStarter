@@ -1,9 +1,9 @@
 tree
 sketchybar
+borders
 pipes-sh
 fastfetch
 cmatrix
 cbonsai
-borders
 sl
 asciiquarium
