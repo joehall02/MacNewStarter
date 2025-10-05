@@ -65,6 +65,7 @@ echo "7) Install VSCode Extensions"
 echo "8) Install Zap ZSH"
 echo "9) Setup Dotfiles"
 echo "10) Setup Configs"
+echo "11) Quit"
 echo
 
 # --- Read User Input ---
@@ -93,6 +94,7 @@ case "$choice" in
     8) install_zap_zsh ;;
     9) setup_dotfiles ;;
     10) setup_configs ;;
+    11) exit 0 ;;
     *)
         echo "Invalid choice. Exiting."
         exit 1

@@ -1,7 +1,6 @@
 #!/bin/bash
 source "$(dirname "$0")/../utils/helpers.sh"
 
-
 # Install Homebrew if missing
 if ! command -v brew &> /dev/null; then
     # Confirm installation

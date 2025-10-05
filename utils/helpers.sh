@@ -2,22 +2,22 @@
 
 # Utility function for logging info
 log_info() {
-    echo -e "\e[34m[INFO]\e[0m $*"
+    echo "ℹ️ [INFO] $*"
 }
 
 # Utility function for logging success
 log_success() {
-    echo -e "\e[32m[SUCCESS]\e[0m $*"
+    echo "✅ [SUCCESS] $*"
 }
 
 # Utility function for logging warnings
 log_warning() {
-    echo -e "\e[33m[WARNING]\e[0m $*"
+    echo "⚠️ [WARNING] $*"
 }
 
 # Utility function for logging errors
 log_error() {
-    echo -e "\e[31m[ERROR]\e[0m $*"
+    echo "🛑 [ERROR] $*"
 }
 
 # Utility function to ensure Homebrew CLI is available
@@ -41,9 +41,10 @@ confirm_installation() {
     item_to_install="$1"
 
     read -p "Do you want to install '$item_to_install'? [y/N]: " confirm
-    confirm=${confirm,,} # convert to lowercase
+    # POSIX-compatible lowercasing
+    confirm_lower=$(printf "%s" "$confirm" | tr '[:upper:]' '[:lower:]')
 
-    if [[ "$confirm" != "y" && "$confirm" != "yes" ]]; then
+    if [[ "$confirm_lower" != "y" && "$confirm_lower" != "yes" ]]; then
         log_info "Skipping '$item_to_install' installation."
         return 1
     fi
