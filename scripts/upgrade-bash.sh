@@ -16,13 +16,21 @@ if ! check_bash_version; then
 
     BREW_BASH="$(brew --prefix)/bin/bash"
 
+    # Verify installation
+    if [[ ! -x "$BREW_BASH" ]]; then
+        log_error "Homebrew Bash installation failed."
+        exit 1
+    fi
+
     # Temporarily prioritise Homebrew Bash in PATH for this session
     export PATH="$(dirname "$BREW_BASH"):$PATH"
 
-    # Verify that the new Bash is being used
+    log_success "Latest Bash installed at $BREW_BASH"
     log_info "Current Bash version: $(bash --version | head -n 1)"
 
-    log_success "Latest Bash installed at $BREW_BASH"
+    # Replace current shell with the new Bash for the rest of the script
+    log_info "Switching current shell to Homebrew Bash..."
+    exec "$BREW_BASH" "$0" "$@"
 else
     log_info "Compatible Bash version already installed"
 fi
