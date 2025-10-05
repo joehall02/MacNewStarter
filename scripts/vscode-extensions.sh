@@ -12,7 +12,7 @@ if ! check_vs_code_is_installed; then
 fi
 
 # Confirm installation
-if ! confirm_installation "VSCode extensions"; then
+if ! confirm_action "installing VSCode extensions"; then
     exit 0
 fi
 

@@ -5,7 +5,7 @@ source "$(dirname "$0")/../utils/helpers.sh"
 # Install xcode cli tools
 if ! xcode-select -p &>/dev/null; then
     # Confirm installation
-    if ! confirm_installation "Xcode CLI tools"; then
+    if ! confirm_action "installing Xcode CLI tools"; then
         exit 0
     fi
 

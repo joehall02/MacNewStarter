@@ -9,7 +9,7 @@ if [ -d "$ZAP_DIR" ]; then
     log_info "Zap is already installed at $ZAP_DIR"
 else
     # Confirm installation
-    if ! confirm_installation "Zap Zsh plugin manager"; then
+    if ! confirm_action "installing Zap Zsh plugin manager"; then
         exit 0
     fi
 

@@ -30,8 +30,13 @@ setup_dotfiles() {
 }
 
 main() {
-    log_info "Starting dotfiles setup..."
+    # Confirm dotfiles setup
+    if ! confirm_action "setting up dotfiles"; then
+        exit 0
+    fi
     
+    log_info "Starting dotfiles setup..."
+
     if setup_dotfiles; then
         log_success "🎉 Dotfiles setup completed!"
         log_info "All changes to dotfiles will now be git tracked in this repository"

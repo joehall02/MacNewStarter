@@ -69,8 +69,13 @@ setup_config_files() {
 }
 
 main() {
-    log_info "Starting config files setup..."
+    # Confirm config files setup
+    if ! confirm_action "setting up config files"; then
+        exit 0
+    fi
     
+    log_info "Starting config files setup..."
+
     if setup_config_files; then
         log_success "🎉 Config files setup completed!"
         log_info "All changes to config files will now be git tracked in this repository"

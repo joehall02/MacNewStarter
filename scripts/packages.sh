@@ -12,7 +12,7 @@ if ! check_brew_is_installed; then
 fi
 
 # Confirm installation
-if ! confirm_installation "Packages"; then
+if ! confirm_action "installing Packages"; then
     exit 0
 fi
 

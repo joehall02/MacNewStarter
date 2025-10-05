@@ -12,7 +12,7 @@ if ! check_brew_is_installed; then
 fi
 
 # Confirm installation
-if ! confirm_installation "GUI apps"; then
+if ! confirm_action "installing GUI apps"; then
     exit 0
 fi
 

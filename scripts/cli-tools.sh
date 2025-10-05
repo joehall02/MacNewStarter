@@ -12,8 +12,7 @@ if ! check_brew_is_installed; then
 fi
 
 # Confirm installation
-if ! confirm_installation "CLI Tools"; then
-    log_error "Skipping CLI Tools installation..."
+if ! confirm_action "installing CLI Tools"; then
     exit 0
 fi
 

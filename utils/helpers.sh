@@ -37,15 +37,15 @@ check_vs_code_is_installed() {
 }
 
 # Utility function to confirm installation
-confirm_installation() {
-    item_to_install="$1"
+confirm_action() {
+    action="$1"
 
-    read -p "Do you want to install '$item_to_install'? [y/N]: " confirm
+    read -p "Do you want to proceed with '$action'? [y/N]: " confirm
     # POSIX-compatible lowercasing
     confirm_lower=$(printf "%s" "$confirm" | tr '[:upper:]' '[:lower:]')
 
     if [[ "$confirm_lower" != "y" && "$confirm_lower" != "yes" ]]; then
-        log_info "Skipping '$item_to_install' installation."
+        log_info "Skipping '$action'."
         return 1
     fi
 }

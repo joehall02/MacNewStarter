@@ -55,15 +55,15 @@ echo
 
 # Menu
 echo "Enter one of the following numbers to get started:"
-echo "1) Install everything (Recommended)"
-echo "2) Install Xcode Command Line Tools"
-echo "3) Install Homebrew"
-echo "4) Install CLI Tools"
-echo "5) Install Packages"
-echo "6) Install GUI Apps"
-echo "7) Install VSCode Extensions"
-echo "8) Install Zap ZSH"
-echo "9) Setup Dotfiles"
+echo "1 ) Install everything (Recommended)"
+echo "2 ) Install Xcode Command Line Tools"
+echo "3 ) Install Homebrew"
+echo "4 ) Install CLI Tools"
+echo "5 ) Install Packages"
+echo "6 ) Install GUI Apps"
+echo "7 ) Install VSCode Extensions"
+echo "8 ) Install Zap ZSH"
+echo "9 ) Setup Dotfiles"
 echo "10) Setup Configs"
 echo "11) Quit"
 echo
@@ -94,7 +94,9 @@ case "$choice" in
     8) install_zap_zsh ;;
     9) setup_dotfiles ;;
     10) setup_configs ;;
-    11) exit 0 ;;
+    11) 
+        echo "Exiting..."
+        exit 0 ;;
     *)
         echo "Invalid choice. Exiting."
         exit 1
@@ -102,3 +104,5 @@ case "$choice" in
 esac
 
 log_success "🎉 MacNewStarter setup installation completed!"
+echo "Exiting..."
+exit 0
