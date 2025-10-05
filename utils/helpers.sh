@@ -50,7 +50,7 @@ check_vs_code_is_installed() {
 confirm_action() {
     action="$1"
 
-    read -p "Do you want to proceed with '$action'? [y/N]: " confirm
+    read -rp "Do you want to proceed with '$action'? [y/N]: " confirm
     # POSIX-compatible lowercasing
     confirm_lower=$(printf "%s" "$confirm" | tr '[:upper:]' '[:lower:]')
 

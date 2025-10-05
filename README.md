@@ -50,6 +50,6 @@ A personal, modular setup script for quickly configuring a new Mac (Apple Silico
 ## Notes
 
 - All actions require confirmation by default for safety.
-- Existing dotfiles are backed up before being replaced.
+- Existing dotfiles and configs are backed up before being replaced.
 - Designed for personal use—review and adjust for your own needs!
 - Review the project yourself before running on your own system!

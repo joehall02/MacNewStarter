@@ -30,4 +30,3 @@ if [ -f "$VSCODE_EXTENSIONS_FILE" ]; then
 else
     log_error "No vscode-extensions.txt file found"
 fi
-

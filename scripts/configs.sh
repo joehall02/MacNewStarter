@@ -44,12 +44,13 @@ setup_config_files() {
                 log_info "Removing existing symlink: $target_config"
                 rm "$target_config"
             elif [[ -d "$target_config" ]]; then
-                log_warning "Removing existing directory: $target_config (will be overwritten)"
-                rm -rf "$target_config"
+                local backup="${target_config}.backup_$(date +%Y%m%d%H%M%S)"
+                log_warning "Backing up existing directory: $target_config to $backup"
+                mv "$target_config" "$backup"
             fi
             
             # Create symlink
-            ln -sf "$source_config" "$target_config"
+            ln -s "$source_config" "$target_config"
             log_success "Created config symlink: $target_config -> $source_config"
             
         elif [[ -f "$config_item" ]]; then
@@ -63,10 +64,14 @@ setup_config_files() {
             if [[ -L "$target_config" ]]; then
                 log_info "Removing existing symlink: $target_config"
                 rm "$target_config"
+            elif [[ -f "$target_config" ]]; then
+                local backup="${target_config}.backup_$(date +%Y%m%d%H%M%S)"
+                log_warning "Backing up existing file: $target_config to $backup"
+                mv "$target_config" "$backup"
             fi
             
             # Create symlink
-            ln -sf "$source_config" "$target_config"
+            ln -s "$source_config" "$target_config"
             log_success "Created config symlink: $target_config -> $source_config"
         fi
     done

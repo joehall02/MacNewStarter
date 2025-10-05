@@ -7,4 +7,3 @@ cmatrix
 cbonsai
 sl
 asciiquarium
-tree
