@@ -12,8 +12,7 @@ if ! check_bash_version; then
         exit 0
     fi
 
-    log_info "Installing latest Bash via Homebrew..."
-    brew install bash
+    install_via_brew bash
 
     BREW_BASH="$(brew --prefix)/bin/bash"
 
