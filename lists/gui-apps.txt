@@ -8,7 +8,7 @@ spotify
 # Utilities
 logi-options+
 linearmouse
-nikitabobko/tap/aerospace
+# nikitabobko/tap/aerospace
 stats
 surfshark
 balenaetcher
@@ -28,4 +28,5 @@ sourcetree
 xcodes
 
 # Fonts
-homebrew/cask-fonts/font-meslo-lg-nerd-font
+font-meslo-lg-nerd-font
+sf-symbols
