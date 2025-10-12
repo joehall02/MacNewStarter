@@ -1,10 +1,11 @@
 tree
-# FelixKratz/formulae/sketchybar
-# FelixKratz/formulae/borders
 pipes-sh
 fastfetch
 cmatrix
 cbonsai
 sl
 asciiquarium
+# FelixKratz/formulae/sketchybar
+# FelixKratz/formulae/borders
 font-sf-pro
+starship

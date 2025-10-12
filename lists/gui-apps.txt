@@ -29,4 +29,5 @@ xcodes
 
 # Fonts
 font-meslo-lg-nerd-font
+font-caskaydia-cove-nerd-font
 sf-symbols

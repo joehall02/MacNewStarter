@@ -23,7 +23,7 @@ fpath=(
 # Load Zap plugins
 # =========================================
 plug "zap-zsh/supercharge"
-plug "zap-zsh/zap-prompt"
+# plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-completions"
@@ -38,5 +38,11 @@ alias treeview='tree -C -a -L 3 --prune --noreport -I "node_modules|.git"'
 # =========================================
 export NVM_DIR="$HOME/.nvm"
 source "$(brew --prefix nvm)/nvm.sh"
+
 # Enable nvm tab completion
 [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+
+# =========================================
+# Starship Prompt
+# =========================================
+eval "$(starship init zsh)"

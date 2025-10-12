@@ -9,3 +9,4 @@ openjdk
 virtualenv
 git
 jq
+fzf
