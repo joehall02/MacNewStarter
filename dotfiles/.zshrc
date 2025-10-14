@@ -5,12 +5,6 @@ ZAP_DIR="$HOME/.local/share/zap"
 [ -f "$ZAP_DIR/zap.zsh" ] && source "$ZAP_DIR/zap.zsh"
 
 # =========================================
-# Initialize completion system
-# =========================================
-autoload -Uz compinit
-compinit
-
-# =========================================
 # Add Homebrew and local completions to fpath
 # This allows most CLI tools to provide tab completion automatically
 # =========================================
@@ -23,15 +17,24 @@ fpath=(
 # Load Zap plugins
 # =========================================
 plug "zap-zsh/supercharge"
+plug "wintermi/zsh-lsd"
 # plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-completions"
+plug "wintermi/zsh-brew"
+plug "atoftegaard-git/zsh-omz-autocomplete"
+
+# =========================================
+# Initialize completion system
+# =========================================
+autoload -Uz compinit
+compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
 
 # =========================================
 # Aliases
 # =========================================
-alias treeview='tree -C -a -L 3 --prune --noreport -I "node_modules|.git"'
+# alias treeview='tree -C -a -L 3 --prune --noreport -I "node_modules|.git"'
 
 # =========================================
 # NVM (Node Version Manager) setup

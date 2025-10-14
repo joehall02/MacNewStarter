@@ -10,3 +10,4 @@ virtualenv
 git
 jq
 fzf
+lsd
