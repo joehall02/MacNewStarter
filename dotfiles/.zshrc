@@ -4,14 +4,6 @@
 ZAP_DIR="$HOME/.local/share/zap"
 [ -f "$ZAP_DIR/zap.zsh" ] && source "$ZAP_DIR/zap.zsh"
 
-# =========================================
-# Add Homebrew and local completions to fpath
-# This allows most CLI tools to provide tab completion automatically
-# =========================================
-fpath=(
-  $(brew --prefix)/share/zsh/site-functions
-  $fpath
-)
 
 # =========================================
 # Load Zap plugins
@@ -30,6 +22,20 @@ plug "atoftegaard-git/zsh-omz-autocomplete"
 # =========================================
 autoload -Uz compinit
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
+
+# =========================================
+# Add Homebrew and local completions to fpath
+# This allows most CLI tools to provide tab completion automatically
+# =========================================
+fpath=(
+  $(brew --prefix)/share/zsh/site-functions
+  $fpath
+)
+
+# =========================================
+# Enable Docker CLI completions.
+# =========================================
+fpath=(/Users/joehall/.docker/completions $fpath)
 
 # =========================================
 # Aliases

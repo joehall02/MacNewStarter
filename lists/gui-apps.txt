@@ -13,6 +13,7 @@ stats
 surfshark
 balenaetcher
 obs
+ollama
 
 # Developer
 visual-studio-code
