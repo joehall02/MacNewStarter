@@ -11,3 +11,5 @@ git
 jq
 fzf
 lsd
+ollama
+sst/tap/opencode

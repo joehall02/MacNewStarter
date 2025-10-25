@@ -4,6 +4,7 @@ google-chrome
 
 # Entertainment
 spotify
+jellyfin
 
 # Utilities
 logi-options+
@@ -13,7 +14,8 @@ stats
 surfshark
 balenaetcher
 obs
-ollama
+tailscale
+malwarebytes
 
 # Developer
 visual-studio-code

@@ -21,6 +21,14 @@ plug "atoftegaard-git/zsh-omz-autocomplete"
 # Initialize completion system
 # =========================================
 autoload -Uz compinit
+zmodload zsh/complist
+
+# Use menu completion (needed for Shift-Tab)
+# setopt menucomplete
+
+# Bind Tab and Shift-Tab
+# bindkey '^I' expand-or-complete
+bindkey '^[[Z' reverse-menu-complete
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
 
 # =========================================

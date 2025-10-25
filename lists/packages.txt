@@ -9,3 +9,4 @@ asciiquarium
 # FelixKratz/formulae/borders
 font-sf-pro
 starship
+caddy
