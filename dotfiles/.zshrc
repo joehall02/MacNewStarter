@@ -60,6 +60,11 @@ source "$(brew --prefix nvm)/nvm.sh"
 [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 
 # =========================================
+# FZF setup
+# =========================================
+source <(fzf --zsh)
+
+# =========================================
 # Starship Prompt
 # =========================================
 eval "$(starship init zsh)"
