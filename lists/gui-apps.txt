@@ -22,6 +22,7 @@ visual-studio-code
 cursor
 dbeaver-community
 postman
+bruno
 docker-desktop
 iterm2
 arduino-ide
