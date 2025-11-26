@@ -3,7 +3,7 @@
 # so it won't be run twice on AeroSpace restart
 
 after-startup-command = [
-    'exec-and-forget /opt/homebrew/bin/borders style=round width=4.0 hidpi=off order=a active_color=0xff6f8fb4 inactive_color=0xff414550',
+    'exec-and-forget /opt/homebrew/bin/borders style=round width=4.0 hidpi=off order=a active_color=0xff682EC9 inactive_color=0xff414550',
 ]
 
 # Notify Sketchybar about workspace change
