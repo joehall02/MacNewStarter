@@ -13,16 +13,23 @@
         },
         "deepseek-r1:14b": {
             "name": "deepseek-r1:14b"
-        },
-        "gpt-oss:20b": {
-            "name": "gpt-oss:20b"
-        },
-        "deepseek-coder:6.7b": {
-            "name": "deepseek-coder:6.7b"
+        }
+      }
+    },
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://localhost:1234/v1"
+      },
+      "models": {
+        "openai/gpt-oss-20b": {
+          "name": "openai/gpt-oss-20b"
         }
       }
     }
   },
+  
   "tools": {
     "write": true,
     "edit": true,

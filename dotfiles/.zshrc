@@ -4,7 +4,6 @@
 ZAP_DIR="$HOME/.local/share/zap"
 [ -f "$ZAP_DIR/zap.zsh" ] && source "$ZAP_DIR/zap.zsh"
 
-
 # =========================================
 # Load Zap plugins
 # =========================================
@@ -43,7 +42,7 @@ fpath=(
 # =========================================
 # Enable Docker CLI completions.
 # =========================================
-fpath=(/Users/joehall/.docker/completions $fpath)
+fpath=(/$HOME/.docker/completions $fpath)
 
 # =========================================
 # Aliases
@@ -68,3 +67,9 @@ source <(fzf --zsh)
 # Starship Prompt
 # =========================================
 eval "$(starship init zsh)"
+
+# =========================================
+# LM Studio setup
+# =========================================
+export PATH="$PATH:/$HOME/.lmstudio/bin"
+

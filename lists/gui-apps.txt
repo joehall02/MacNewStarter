@@ -9,13 +9,14 @@ jellyfin
 # Utilities
 logi-options+
 linearmouse
-# nikitabobko/tap/aerospace
+aerospace
 stats
 surfshark
 balenaetcher
 obs
 tailscale
 malwarebytes
+lm-studio
 
 # Developer
 visual-studio-code
@@ -29,6 +30,7 @@ arduino-ide
 proxyman
 figma
 sourcetree
+gitkraken
 xcodes
 
 # Fonts
