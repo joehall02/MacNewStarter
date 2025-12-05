@@ -17,6 +17,15 @@ plug "wintermi/zsh-brew"
 plug "atoftegaard-git/zsh-omz-autocomplete"
 
 # =========================================
+# .env
+# =========================================
+if [ -f "$HOME/.env" ]; then
+  source "$HOME/.env"
+
+  export OPENAI_API_KEY="${OPENAI:-$OPENAI_API_KEY}"
+fi
+
+# =========================================
 # Initialize completion system
 # =========================================
 autoload -Uz compinit
@@ -72,4 +81,9 @@ eval "$(starship init zsh)"
 # LM Studio setup
 # =========================================
 export PATH="$PATH:/$HOME/.lmstudio/bin"
+
+# =========================================
+# AI Providers
+# =========================================
+export OPENAI_API_KEY="$OPENAI"
 
