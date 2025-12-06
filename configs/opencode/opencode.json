@@ -33,7 +33,7 @@
       "name": "OpenAI (API)",
       "options":{
         "baseURL": "https://api.openai.com/v1"
-      },
+      }
     }
   },
   

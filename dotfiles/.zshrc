@@ -24,7 +24,7 @@ if [ -f "$HOME/.env" ]; then
 fi
 
 if [ -f "$HOME/.config/shell/env.zsh" ]; then
-  source "$ENV_FILE"
+  source "$HOME/.config/shell/env.zsh"
 fi
 
 # =========================================

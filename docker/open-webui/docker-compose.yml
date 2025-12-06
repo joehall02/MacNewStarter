@@ -11,5 +11,5 @@ services:
     environment:
       - WEBUI_AUTH_TRUSTED_PROXY=*
     volumes:
-      - ${OPEN_WEBUI_VOLUME_PATH}:/app/backend/data
+      - ${OPEN_WEBUI_CONFIG_PATH}:/app/backend/data
     restart: always
