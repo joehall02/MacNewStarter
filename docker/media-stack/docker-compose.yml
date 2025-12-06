@@ -1,0 +1,110 @@
+name: media-stack
+
+services:
+  # ========================
+  # qBittorrent - Downloader
+  # ========================
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=${QBIT_PUID}
+      - PGID=${QBIT_PGID}
+      - TZ=${TZ}
+      - WEBUI_PORT=${QBIT_WEBUI_PORT}
+      - TORRENTING_PORT=${QBIT_TORRENT_PORT}
+    volumes:
+      - ${QBIT_CONFIG_PATH}:/config
+      - ${MEDIA_DOWNLOADS_PATH}:/downloads
+    ports:
+      - "${QBIT_WEBUI_PORT}:8080"         # Web UI
+      - "${QBIT_TORRENT_PORT}:6881"       # Torrent port (TCP)
+      - "${QBIT_TORRENT_PORT}:6881/udp"   # Torrent port (UDP)
+    restart: unless-stopped
+    networks:
+      - media-network
+
+  # ========================
+  # Sonarr - TV Shows
+  # ========================
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=${SONARR_PUID}
+      - PGID=${SONARR_PGID}
+      - TZ=${TZ}
+      - UMASK_SET=000 # Make all files world readable and writable
+    volumes:
+      - ${SONARR_CONFIG_PATH}:/config
+      - ${MEDIA_DOWNLOADS_PATH}:/downloads
+      - ${MEDIA_TV_PATH}:/tv
+    ports:
+      - "${SONARR_PORT}:8989"
+    restart: unless-stopped
+    networks:
+      - media-network
+
+  # ========================
+  # Radarr - Movies
+  # ========================
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=${RADARR_PUID}
+      - PGID=${RADARR_PGID}
+      - TZ=${TZ}
+      - UMASK_SET=000
+    volumes:
+      - ${RADARR_CONFIG_PATH}:/config
+      - ${MEDIA_DOWNLOADS_PATH}:/downloads
+      - ${MEDIA_MOVIES_PATH}:/movies
+    ports:
+      - "${RADARR_PORT}:7878"
+    restart: unless-stopped
+    networks:
+      - media-network
+
+  # ========================
+  # Prowlarr - Indexer Manager
+  # ========================
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=${PROWLARR_PUID}
+      - PGID=${PROWLARR_PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${PROWLARR_CONFIG_PATH}:/config
+    ports:
+      - "${PROWLARR_PORT}:9696"
+    restart: unless-stopped
+    networks:
+      - media-network
+
+  # ========================
+  # Byparr - Flaresolverr alternative (Bypass cloudflare restrictions)
+  # ========================
+  byparr:
+    image: ghcr.io/thephaseless/byparr:latest
+    container_name: byparr
+    environment:
+      - TZ=${TZ}
+    ports:
+      - "${BYPARR_PORT}:8191"
+    restart: unless-stopped
+    init: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - media-network
+
+# ========================
+# Shared Docker Network
+# ========================
+networks:
+  media-network:
+    driver: bridge
