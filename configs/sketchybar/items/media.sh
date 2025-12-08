@@ -8,7 +8,5 @@ sketchybar --add item media centre \
                        scroll_texts=on \
                        icon=􀑪             \
                        icon.color=$WHITE   \
-                       background.drawing=on \
-                       background.color=$BLACK \
                        script="$PLUGIN_DIR/media.sh" \
            --subscribe media media_change

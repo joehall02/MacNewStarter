@@ -7,3 +7,5 @@ tomoki1207.pdf
 zhuangtongfa.material-theme
 aykutsarac.jsoncrack-vscode
 eamodio.gitlens
+ms-python.python
+continue.continue

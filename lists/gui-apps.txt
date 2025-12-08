@@ -5,6 +5,7 @@ google-chrome
 # Entertainment
 spotify
 jellyfin
+retroarch-metal
 
 # Utilities
 logi-options+
