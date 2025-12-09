@@ -25,6 +25,9 @@
       "models": {
         "openai/gpt-oss-20b": {
           "name": "openai/gpt-oss-20b"
+        },
+        "qwen/qwen2.5-coder-14b": {
+          "name": "qwen/qwen2.5-coder-14b"
         }
       }
     },
