@@ -5,6 +5,9 @@ naumovs.color-highlight
 shd101wyy.markdown-preview-enhanced
 tomoki1207.pdf
 zhuangtongfa.material-theme
+dracula-theme.theme-dracula
+marnix.tokyo-night-pro
+enkia.tokyo-night
 aykutsarac.jsoncrack-vscode
 eamodio.gitlens
 ms-python.python
