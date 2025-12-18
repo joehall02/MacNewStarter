@@ -1,0 +1,19 @@
+{
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Tokyo Night Pro",
+    "editor.fontFamily": "MesloLGL Nerd Font Mono",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorStyleInactive": "line",
+    "editor.minimap.enabled": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth": 100,
+    "continue.showInlineTip": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "extensions.ignoreRecommendations": true,
+    "workbench.iconTheme": "symbols",
+    "editor.hover.delay": 1000,
+    "workbench.layoutControl.enabled": false,
+    "chat.commandCenter.enabled": false
+}

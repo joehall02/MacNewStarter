@@ -13,3 +13,4 @@ fzf
 lsd
 ollama
 sst/tap/opencode
+wget

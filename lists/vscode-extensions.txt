@@ -7,7 +7,9 @@ tomoki1207.pdf
 zhuangtongfa.material-theme
 dracula-theme.theme-dracula
 marnix.tokyo-night-pro
+catppuccin.catppuccin-vsc
 enkia.tokyo-night
+miguelsolorio.symbols
 aykutsarac.jsoncrack-vscode
 eamodio.gitlens
 ms-python.python
