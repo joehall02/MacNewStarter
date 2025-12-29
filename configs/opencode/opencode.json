@@ -52,5 +52,13 @@
     "todowrite": true,
     "todoread": true,
     "webfetch": true
+  },
+
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "webfetch": "ask",
+    "doom_loop": "ask",
+    "external_directory": "ask"
   }
 }
