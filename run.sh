@@ -54,6 +54,11 @@ setup_docker() {
     ./scripts/docker.sh
 }
 
+# Function to setup vscode settings symlinking
+setup_vscode_settings() {
+    ./scripts/vscode-settings.sh
+}
+
 # Function to install VSCode extneions
 install_vscode_extensions() {
     ./scripts/vscode-extensions.sh
@@ -82,7 +87,8 @@ echo "9 ) Install Zap ZSH"
 echo "10) Setup Dotfiles"
 echo "11) Setup Configs"
 echo "12) Setup Docker"
-echo "13) Quit"
+echo "13) Setup VSCode Settings"
+echo "14) Quit"
 echo
 
 # --- Read User Input ---
@@ -103,6 +109,7 @@ case "$choice" in
         setup_dotfiles
         setup_configs
         setup_docker
+        setup_vscode_settings
         ;;
     2) install_xcode_cli_tools ;;
     3) install_homebrew ;;
@@ -115,7 +122,8 @@ case "$choice" in
     10) setup_dotfiles ;;
     11) setup_configs ;;
     12) setup_docker ;;
-    13) 
+    13) setup_vscode_settings ;;
+    14) 
         echo "Exiting..."
         exit 0 ;;
     *)

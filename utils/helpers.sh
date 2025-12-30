@@ -116,7 +116,7 @@ install_vscode_extension() {
 }
 
 # Utility function to create a symlink
-create_dotfile_symlink() {
+create_symlink() {
     local source="$1"
     local target="$2"
 

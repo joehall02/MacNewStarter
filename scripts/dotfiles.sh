@@ -26,7 +26,7 @@ setup_dotfiles() {
         target_file="$HOME/$(basename "$dotfile")"
 
         if [[ -f "$source_file" ]]; then
-            create_dotfile_symlink "$source_file" "$target_file"
+            create_symlink "$source_file" "$target_file"
         else
             log_warning "Dotfile $(basename "$dotfile") not found in $DOTFILES_DIR, skipping..."
         fi
