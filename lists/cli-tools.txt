@@ -14,3 +14,4 @@ lsd
 ollama
 sst/tap/opencode
 wget
+netdata
