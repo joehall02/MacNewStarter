@@ -1,20 +1,14 @@
 # =========================================
 # Environment variables
 # =========================================
-if [ -f "$HOME/.env" ]; then
-  source "$HOME/.env"
-fi
+[ -f "$HOME/.env" ] && source "$HOME/.env"
 
-if [ -f "$HOME/.config/shell/env.zsh" ]; then
-  source "$HOME/.config/shell/env.zsh"
-fi
+[ -f "$HOME/.config/shell/env.zsh" ] && source "$HOME/.config/shell/env.zsh"
 
 # =========================================
 # Source Aliases
 # =========================================
-if [ -f "$HOME/.config/shell/aliases.zsh" ]; then
-  source "$HOME/.config/shell/aliases.zsh"
-fi
+[ -f "$HOME/.config/shell/aliases.zsh" ] && source "$HOME/.config/shell/aliases.zsh"
 
 # Default to primary setup
 ZSH_MODE="${ZSH_MODE:-primary}"
