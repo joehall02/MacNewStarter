@@ -39,6 +39,11 @@ install_zap_zsh() {
     ./scripts/zap-zsh.sh
 }
 
+# Function to install oh my zsh
+install_oh_my_zsh() {
+    ./scripts/oh-my-zsh-install.sh
+}
+
 # Function to setup dotfiles
 setup_dotfiles() {
     ./scripts/dotfiles.sh
@@ -70,6 +75,7 @@ install_gui_apps() {
 }
 
 # Welcome
+echo
 echo "Welcome to MacNewStarter!"
 echo
 
@@ -84,11 +90,12 @@ echo "6 ) Install Packages"
 echo "7 ) Install GUI Apps"
 echo "8 ) Install VSCode Extensions"
 echo "9 ) Install Zap ZSH"
-echo "10) Setup Dotfiles"
-echo "11) Setup Configs"
-echo "12) Setup Docker"
-echo "13) Setup VSCode Settings"
-echo "14) Quit"
+echo "10 ) Install Oh My Zsh"
+echo "11) Setup Dotfiles"
+echo "12) Setup Configs"
+echo "13) Setup Docker"
+echo "14) Setup VSCode Settings"
+echo "15) Quit"
 echo
 
 # --- Read User Input ---
@@ -106,6 +113,7 @@ case "$choice" in
         install_gui_apps
         install_vscode_extensions
         install_zap_zsh
+        install_oh_my_zsh
         setup_dotfiles
         setup_configs
         setup_docker
@@ -119,11 +127,12 @@ case "$choice" in
     7) install_gui_apps ;;
     8) install_vscode_extensions ;;
     9) install_zap_zsh ;;
-    10) setup_dotfiles ;;
-    11) setup_configs ;;
-    12) setup_docker ;;
-    13) setup_vscode_settings ;;
-    14) 
+    10) install_oh_my_zsh ;;
+    11) setup_dotfiles ;;
+    12) setup_configs ;;
+    13) setup_docker ;;
+    14) setup_vscode_settings ;;
+    15) 
         echo "Exiting..."
         exit 0 ;;
     *)
