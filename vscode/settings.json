@@ -27,5 +27,9 @@
         "*": false
     },
     "workbench.sideBar.location": "right",
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "files.associations": {
+        ".zshrc.ohmyzsh": "shellscript",
+        ".zshrc.primary": "shellscript"
+    }
 }
