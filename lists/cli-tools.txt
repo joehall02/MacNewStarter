@@ -1,6 +1,7 @@
 nano
 nvm
 htop
+btop
 gh
 sqlite
 python@3.13
