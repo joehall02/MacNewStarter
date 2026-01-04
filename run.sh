@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Gets root dir of MacNewStarter
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 source "$(dirname "$0")/utils/helpers.sh"
 
 # Main installation script for macOS setup
@@ -11,136 +14,222 @@ fi
 
 # Function to install xcode command line tools
 install_xcode_cli_tools() {
-    ./scripts/xcode-cli-tools.sh
+    $ROOT_DIR/scripts/xcode-cli-tools.sh
 }
 
 # Function to install Homebrew
 install_homebrew() {
-    ./scripts/homebrew.sh
+    $ROOT_DIR/scripts/homebrew.sh
 }
 
 # Function to upgrade bash
 upgrade_bash() {
-    ./scripts/upgrade-bash.sh
+    $ROOT_DIR/scripts/upgrade-bash.sh
 }
 
 # Function to install command line tools
 install_cli_tools() {
-    ./scripts/cli-tools.sh
+    $ROOT_DIR/scripts/cli-tools.sh
 }
 
 # Function to install additional packages
 install_packages() {
-    ./scripts/packages.sh
+    $ROOT_DIR/scripts/packages.sh
 }
 
 # Function to install zap zsh
 install_zap_zsh() {
-    ./scripts/zap-zsh.sh
+    $ROOT_DIR/scripts/zap-zsh.sh
 }
 
 # Function to install oh my zsh
 install_oh_my_zsh() {
-    ./scripts/oh-my-zsh-install.sh
+    $ROOT_DIR/scripts/oh-my-zsh-install.sh
 }
 
 # Function to setup dotfiles
 setup_dotfiles() {
-    ./scripts/dotfiles.sh
+    $ROOT_DIR/scripts/dotfiles.sh
 }
 
 # Function to setup config files
 setup_configs() {
-    ./scripts/configs.sh
+    $ROOT_DIR/scripts/configs.sh
 }
 
 # Function to setup docker symlinking
 setup_docker() {
-    ./scripts/docker.sh
+    $ROOT_DIR/scripts/docker.sh
 }
 
 # Function to setup vscode settings symlinking
 setup_vscode_settings() {
-    ./scripts/vscode-settings.sh
+    $ROOT_DIR/scripts/vscode-settings.sh
 }
 
-# Function to install VSCode extneions
+# Function to install VSCode extensions
 install_vscode_extensions() {
-    ./scripts/vscode-extensions.sh
+    $ROOT_DIR/scripts/vscode-extensions.sh
 }
 
 # Function to install GUI applications
 install_gui_apps() {
-    ./scripts/gui-apps.sh
+    $ROOT_DIR/scripts/gui-apps.sh
 }
 
-# Welcome
-echo
-echo "Welcome to MacNewStarter!"
-echo
+print_help() {
+    cat <<EOF
+Usage: mns <command>
 
-# Menu
-echo "Enter one of the following numbers to get started:"
-echo "1 ) Install everything (Recommended)"
-echo "2 ) Install Xcode Command Line Tools"
-echo "3 ) Install Homebrew"
-echo "4 ) Upgrade Bash"
-echo "5 ) Install CLI Tools"
-echo "6 ) Install Packages"
-echo "7 ) Install GUI Apps"
-echo "8 ) Install VSCode Extensions"
-echo "9 ) Install Zap ZSH"
-echo "10 ) Install Oh My Zsh"
-echo "11) Setup Dotfiles"
-echo "12) Setup Configs"
-echo "13) Setup Docker"
-echo "14) Setup VSCode Settings"
-echo "15) Quit"
-echo
+Commands:
+  setup-dotfiles         Setup dotfiles via symlinks 
+  setup-configs          Setup configs via symlinks
+  setup-docker           Setup Docker symlinks
+  setup-vscode-settings  Setup VSCode settings symlinks
+  install-cli-tools      Install CLI tools
+  install-packages       Install extra packages
+  install-gui-apps       Install GUI applications
+  install-vscode-exts    Install VSCode extensions
+  install-homebrew       Install Homebrew
+  install-xcode-cli      Install Xcode Command Line Tools
+  install-zap-zsh        Install Zap ZSH
+  install-oh-my-zsh      Install Oh My Zsh
+  upgrade-bash           Upgrade Bash via Homebrew script
+  all                    Run full recommended setup (everything)
+  help                   Show help message
 
-# --- Read User Input ---
-read -rp "Enter: " choice
-echo
+With no arguments, an interactive menu is shown.
+EOF
+}
 
-# --- Execute Based on Choice ---
-case "$choice" in
-    1)
-        install_xcode_cli_tools
-        install_homebrew
-        upgrade_bash
-        install_cli_tools
-        install_packages
-        install_gui_apps
-        install_vscode_extensions
-        install_zap_zsh
-        install_oh_my_zsh
-        setup_dotfiles
-        setup_configs
-        setup_docker
-        setup_vscode_settings
-        ;;
-    2) install_xcode_cli_tools ;;
-    3) install_homebrew ;;
-    4) upgrade_bash ;;
-    5) install_cli_tools ;;
-    6) install_packages ;;
-    7) install_gui_apps ;;
-    8) install_vscode_extensions ;;
-    9) install_zap_zsh ;;
-    10) install_oh_my_zsh ;;
-    11) setup_dotfiles ;;
-    12) setup_configs ;;
-    13) setup_docker ;;
-    14) setup_vscode_settings ;;
-    15) 
-        echo "Exiting..."
-        exit 0 ;;
-    *)
-        echo "Invalid choice. Exiting."
-        exit 1
-        ;;
-esac
+run_subcommand() {
+    local cmd="$1"
+    
+    # Removes first argument of the command and shifts along in the array to take its place
+    # Passes without error if no arguments exist
+    shift || true 
 
-log_success "🎉 MacNewStarter setup installation completed!"
-echo "Exiting..."
-exit 0
+    # "$@" passes remaining command line arguments to the function
+    case "$cmd" in
+        setup-dotfiles)         setup_dotfiles "$@" ;;
+        setup-configs)          setup_configs "$@" ;;
+        setup-docker)           setup_docker "$@" ;;
+        setup-vscode-settings)  setup_vscode_settings "$@" ;;
+        install-cli-tools)      install_cli_tools "$@" ;;
+        install-packages)       install_packages "$@" ;;
+        install-gui-apps)       install_gui_apps "$@" ;;
+        install-vscode-exts)    install_vscode_extensions "$@" ;;
+        install-homebrew)       install_homebrew "$@" ;;
+        install-xcode-cli)      install_xcode_cli_tools "$@" ;;
+        install-zap-zsh)        install_zap_zsh "$@" ;;
+        install-oh-my-zsh)      install_oh_my_zsh "$@" ;;
+        upgrade-bash)           upgrade_bash "$@" ;;
+        all)
+            install_xcode_cli_tools
+            install_homebrew
+            upgrade_bash
+            install_cli_tools
+            install_packages
+            install_gui_apps
+            install_vscode_extensions
+            install_zap_zsh
+            install_oh_my_zsh
+            setup_dotfiles
+            setup_configs
+            setup_docker
+            setup_vscode_settings
+            ;;
+        help|-h|--help|"")
+            print_help
+            return 0
+            ;;
+        *)
+            log_error "Unknown command: $cmd"
+            echo
+            print_help
+            return 1
+            ;;
+    esac
+
+    log_success "🎉 Command '$cmd' completed!"
+}
+
+show_menu_and_run() {
+    echo
+    echo "Welcome to MacNewStarter!"
+    echo
+
+    echo "Enter one of the following numbers to get started:"
+    echo "1 ) Install everything (Recommended)"
+    echo "2 ) Install Xcode Command Line Tools"
+    echo "3 ) Install Homebrew"
+    echo "4 ) Upgrade Bash"
+    echo "5 ) Install CLI Tools"
+    echo "6 ) Install Packages"
+    echo "7 ) Install GUI Apps"
+    echo "8 ) Install VSCode Extensions"
+    echo "9 ) Install Zap ZSH"
+    echo "10 ) Install Oh My Zsh"
+    echo "11 ) Setup Dotfiles"
+    echo "12 ) Setup Configs"
+    echo "13 ) Setup Docker"
+    echo "14 ) Setup VSCode Settings"
+    echo "15 ) Quit"
+    echo
+
+    read -rp "Enter: " choice
+    echo
+
+    case "$choice" in
+        1)
+            install_xcode_cli_tools
+            install_homebrew
+            upgrade_bash
+            install_cli_tools
+            install_packages
+            install_gui_apps
+            install_vscode_extensions
+            install_zap_zsh
+            install_oh_my_zsh
+            setup_dotfiles
+            setup_configs
+            setup_docker
+            setup_vscode_settings
+            ;;
+        2) install_xcode_cli_tools ;;
+        3) install_homebrew ;;
+        4) upgrade_bash ;;
+        5) install_cli_tools ;;
+        6) install_packages ;;
+        7) install_gui_apps ;;
+        8) install_vscode_extensions ;;
+        9) install_zap_zsh ;;
+        10) install_oh_my_zsh ;;
+        11) setup_dotfiles ;;
+        12) setup_configs ;;
+        13) setup_docker ;;
+        14) setup_vscode_settings ;;
+        15)
+            echo "Exiting..."
+            return 0
+            ;;
+        *)
+            echo "Invalid choice. Exiting."
+            return 1
+            ;;
+    esac
+
+    log_success "🎉 MacNewStarter setup installation completed!"
+    echo "Exiting..."
+}
+
+main() {
+    # Check if at least 1 command line argument was passed
+    if [[ $# -gt 0 ]]; then
+        run_subcommand "$@"
+    else
+        show_menu_and_run
+    fi
+}
+
+main "$@"
