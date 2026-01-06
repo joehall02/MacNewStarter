@@ -10,6 +10,8 @@
 # =========================================
 [ -f "$HOME/.config/shell/aliases.zsh" ] && source "$HOME/.config/shell/aliases.zsh"
 
+export lazygit
+
 # Default to primary setup
 ZSH_MODE="${ZSH_MODE:-primary}"
 
