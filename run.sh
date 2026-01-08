@@ -77,6 +77,10 @@ install_gui_apps() {
     $ROOT_DIR/scripts/gui-apps.sh
 }
 
+backup_docker_services() {
+    $ROOT_DIR/utils/docker-backups.sh
+}
+
 print_help() {
     cat <<EOF
 Usage: mns <command>
@@ -97,6 +101,9 @@ Commands:
   upgrade-bash           Upgrade Bash via Homebrew script
   all                    Run full recommended setup (everything)
   help                   Show help message
+
+Utils:
+  docker-backups         Create backups of docker services
 
 With no arguments, an interactive menu is shown.
 EOF
@@ -124,6 +131,7 @@ run_subcommand() {
         install-zap-zsh)        install_zap_zsh "$@" ;;
         install-oh-my-zsh)      install_oh_my_zsh "$@" ;;
         upgrade-bash)           upgrade_bash "$@" ;;
+        docker-backups)         backup_docker_services "$@" ;;
         all)
             install_xcode_cli_tools
             install_homebrew
