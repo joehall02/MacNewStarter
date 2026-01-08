@@ -40,7 +40,6 @@ docker_backup() {
 
     # Iterate docker folders in docker/
     for docker_compose in "$DOCKER_DIR"/*; do
-        # local docker_compose_dir="$DOCKER_DIR/$docker_compose"
         local name="$(basename "$docker_compose")"
         local docker_compose_volume_dir="$docker_compose/volumes/"
         local timestamped_docker_backup="$BACKUP_DIR/$name/backup_$(date +%Y%m%d%H%M%S)/"
