@@ -1,6 +1,7 @@
 # =========================================
 # System Paths
 # =========================================
+export DOCKER_BACKUP_DIR="${DOCKER_BACKUP_DIR_ENV}"
 export MAC_NEW_STARTER_DIR="${MAC_NEW_STARTER_DIR_ENV}"
 
 # =========================================
