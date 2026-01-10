@@ -15,4 +15,7 @@ alias savepoint-web="$SAVEPOINT_WEB_DIR"
 alias dev="$DEV_DIR"
 
 alias lazygit='CONFIG_DIR="$HOME/.config/lazygit" lazygit'
+alias ll='ls -alF'
+alias la='ls -A'
+
 
