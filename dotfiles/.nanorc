@@ -1,1 +1,1 @@
-include "/opt/homebrew/share/nano/*.nanorc"
+include "/usr/share/nano/*.nanorc"

@@ -19,7 +19,7 @@ export PATH="$PATH:/$HOME/.lmstudio/bin"
 # NVM (Node Version Manager) setup
 # =========================================
 export NVM_DIR="$HOME/.nvm"
-source "$(brew --prefix nvm)/nvm.sh"
+# source "$(brew --prefix nvm)/nvm.sh"
 
 export lazygit
 
