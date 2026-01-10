@@ -1,7 +1,6 @@
 {
     "workbench.sideBar.location": "right",
-    "workbench.colorTheme": "Tokyo Night Pro",
-    "editor.fontFamily": "MesloLGL Nerd Font Mono",
+    "workbench.colorTheme": "Tokyo Night",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorStyleInactive": "line",
     "editor.minimap.enabled": false,
@@ -14,6 +13,7 @@
     "extensions.ignoreRecommendations": true,
     "workbench.iconTheme": "symbols",
     "editor.hover.delay": 1000,
-    "workbench.layoutControl.enabled": false,
-    "chat.commandCenter.enabled": false
+    "chat.commandCenter.enabled": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.layoutControl.enabled": false
 }
