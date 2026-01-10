@@ -3,7 +3,6 @@
     "workbench.colorTheme": "Tokyo Night",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorStyleInactive": "line",
-    "editor.minimap.enabled": false,
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -13,7 +12,24 @@
     "extensions.ignoreRecommendations": true,
     "workbench.iconTheme": "symbols",
     "editor.hover.delay": 1000,
-    "chat.commandCenter.enabled": false,
     "window.menuBarVisibility": "compact",
-    "workbench.layoutControl.enabled": false
+    "workbench.layoutControl.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "editor.minimap.enabled": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.language": "en-GB",
+    "cSpell.languageSettings": [],
+    "cSpell.enabledFileTypes": {
+        "*": false
+    },
+    "workbench.editor.enablePreview": false,
+    "files.associations": {
+        ".zshrc.ohmyzsh": "shellscript",
+        ".zshrc.primary": "shellscript"
+    }
 }

@@ -1,6 +1,7 @@
 nano
 nvm
 htop
+btop
 gh
 sqlite
 python@3.13
@@ -14,3 +15,4 @@ lsd
 ollama
 sst/tap/opencode
 wget
+netdata

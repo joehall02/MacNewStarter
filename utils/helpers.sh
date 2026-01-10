@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# =========================================
+# Loggers
+# =========================================
+
 # Utility function for logging info
 log_info() {
     echo "ℹ️ [INFO] $*"
@@ -19,6 +23,10 @@ log_warning() {
 log_error() {
     echo "🛑 [ERROR] $*"
 }
+
+# =========================================
+# Checkers
+# =========================================
 
 # Utility function to check for minimum bash version 4.0
 check_bash_version() {
@@ -46,19 +54,9 @@ check_vs_code_is_installed() {
     fi
 }
 
-# Utility function to confirm installation
-confirm_action() {
-    action="$1"
-
-    read -rp "Do you want to proceed with '$action'? [y/N]: " confirm
-    # POSIX-compatible lowercasing
-    confirm_lower=$(printf "%s" "$confirm" | tr '[:upper:]' '[:lower:]')
-
-    if [[ "$confirm_lower" != "y" && "$confirm_lower" != "yes" ]]; then
-        log_info "Skipping '$action'."
-        return 1
-    fi
-}
+# =========================================
+# Installers
+# =========================================
 
 # Utility function to install a package using Homebrew
 install_via_brew() {
@@ -115,8 +113,12 @@ install_vscode_extension() {
     fi
 }
 
+# =========================================
+# Others
+# =========================================
+
 # Utility function to create a symlink
-create_dotfile_symlink() {
+create_symlink() {
     local source="$1"
     local target="$2"
 
@@ -144,5 +146,19 @@ create_dotfile_symlink() {
     else
         log_error "Failed to create symlink for $target"
         return 0
+    fi
+}
+
+# Utility function to confirm installation
+confirm_action() {
+    action="$1"
+
+    read -rp "Do you want to proceed with '$action'? [y/N]: " confirm
+    # POSIX-compatible lowercasing
+    confirm_lower=$(printf "%s" "$confirm" | tr '[:upper:]' '[:lower:]')
+
+    if [[ "$confirm_lower" != "y" && "$confirm_lower" != "yes" ]]; then
+        log_info "Skipping '$action'."
+        return 1
     fi
 }

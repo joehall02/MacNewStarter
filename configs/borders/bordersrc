@@ -6,7 +6,7 @@ options=(
 	hidpi=off
 	order=a
 	# active_color=0xff5814c4
-	active_color=0xff8139FA
+	active_color=0xff682EC9
 	inactive_color=0xff414550
 )
 

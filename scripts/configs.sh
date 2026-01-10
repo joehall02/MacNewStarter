@@ -14,9 +14,6 @@ HOME_CONFIG_DIR="$HOME/.config"
 setup_config_files() {
     log_info "Setting up config files..."
     
-    # Create .config directory if it doesn't exist
-    mkdir -p "$HOME_CONFIG_DIR"
-    
     # Check if .config directory exists in home directory
     if [[ ! -d "$HOME_CONFIG_DIR" ]]; then
         log_warning ".config directory not found: $HOME_CONFIG_DIR"

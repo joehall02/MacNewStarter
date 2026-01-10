@@ -1,4 +1,10 @@
 # =========================================
+# System Paths
+# =========================================
+export DOCKER_BACKUP_DIR="${DOCKER_BACKUP_DIR_ENV}"
+export MAC_NEW_STARTER_DIR="${MAC_NEW_STARTER_DIR_ENV}"
+
+# =========================================
 # AI Providers
 # =========================================
 export OPENAI_API_KEY="${OPENAI_API_KEY_ENV}"
