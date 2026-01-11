@@ -12,16 +12,6 @@ if [[ "${BASH_VERSINFO[0]}" -lt 4 ]]; then
     echo
 fi
 
-# Function to install xcode command line tools
-install_xcode_cli_tools() {
-    $ROOT_DIR/scripts/xcode-cli-tools.sh
-}
-
-# Function to install Homebrew
-install_homebrew() {
-    $ROOT_DIR/scripts/homebrew.sh
-}
-
 # Function to upgrade bash
 upgrade_bash() {
     $ROOT_DIR/scripts/upgrade-bash.sh
@@ -94,8 +84,6 @@ Commands:
   install-packages       Install extra packages
   install-gui-apps       Install GUI applications
   install-vscode-exts    Install VSCode extensions
-  install-homebrew       Install Homebrew
-  install-xcode-cli      Install Xcode Command Line Tools
   install-zap-zsh        Install Zap ZSH
   install-oh-my-zsh      Install Oh My Zsh
   upgrade-bash           Upgrade Bash via Homebrew script
@@ -126,15 +114,11 @@ run_subcommand() {
         install-packages)       install_packages "$@" ;;
         install-gui-apps)       install_gui_apps "$@" ;;
         install-vscode-exts)    install_vscode_extensions "$@" ;;
-        install-homebrew)       install_homebrew "$@" ;;
-        install-xcode-cli)      install_xcode_cli_tools "$@" ;;
         install-zap-zsh)        install_zap_zsh "$@" ;;
         install-oh-my-zsh)      install_oh_my_zsh "$@" ;;
         upgrade-bash)           upgrade_bash "$@" ;;
         docker-backups)         backup_docker_services "$@" ;;
         all)
-            install_xcode_cli_tools
-            install_homebrew
             upgrade_bash
             install_cli_tools
             install_packages
@@ -169,20 +153,18 @@ show_menu_and_run() {
 
     echo "Enter one of the following numbers to get started:"
     echo "1 ) Install everything (Recommended)"
-    echo "2 ) Install Xcode Command Line Tools"
-    echo "3 ) Install Homebrew"
-    echo "4 ) Upgrade Bash"
-    echo "5 ) Install CLI Tools"
-    echo "6 ) Install Packages"
-    echo "7 ) Install GUI Apps"
-    echo "8 ) Install VSCode Extensions"
-    echo "9 ) Install Zap ZSH"
-    echo "10 ) Install Oh My Zsh"
-    echo "11 ) Setup Dotfiles"
-    echo "12 ) Setup Configs"
-    echo "13 ) Setup Docker"
-    echo "14 ) Setup VSCode Settings"
-    echo "15 ) Quit"
+    echo "2 ) Upgrade Bash"
+    echo "3 ) Install CLI Tools"
+    echo "4 ) Install Packages"
+    echo "5 ) Install GUI Apps"
+    echo "6 ) Install VSCode Extensions"
+    echo "7 ) Install Zap ZSH"
+    echo "8 ) Install Oh My Zsh"
+    echo "9 ) Setup Dotfiles"
+    echo "10 ) Setup Configs"
+    echo "11 ) Setup Docker"
+    echo "12 ) Setup VSCode Settings"
+    echo "13 ) Quit"
     echo
 
     read -rp "Enter: " choice
@@ -190,8 +172,6 @@ show_menu_and_run() {
 
     case "$choice" in
         1)
-            install_xcode_cli_tools
-            install_homebrew
             upgrade_bash
             install_cli_tools
             install_packages
@@ -204,20 +184,18 @@ show_menu_and_run() {
             setup_docker
             setup_vscode_settings
             ;;
-        2) install_xcode_cli_tools ;;
-        3) install_homebrew ;;
-        4) upgrade_bash ;;
-        5) install_cli_tools ;;
-        6) install_packages ;;
-        7) install_gui_apps ;;
-        8) install_vscode_extensions ;;
-        9) install_zap_zsh ;;
-        10) install_oh_my_zsh ;;
-        11) setup_dotfiles ;;
-        12) setup_configs ;;
-        13) setup_docker ;;
-        14) setup_vscode_settings ;;
-        15)
+        2) upgrade_bash ;;
+        3) install_cli_tools ;;
+        4) install_packages ;;
+        5) install_gui_apps ;;
+        6) install_vscode_extensions ;;
+        7) install_zap_zsh ;;
+        8) install_oh_my_zsh ;;
+        9) setup_dotfiles ;;
+        10) setup_configs ;;
+        11) setup_docker ;;
+        12) setup_vscode_settings ;;
+        13)
             echo "Exiting..."
             return 0
             ;;
