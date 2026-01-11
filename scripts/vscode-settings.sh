@@ -9,7 +9,7 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 VSCODE_SETTINGS_DIR="$PROJECT_ROOT/vscode"
-HOME_VSCODE_SETTINGS_DIR="$HOME/Library/Application Support/Code/User"
+HOME_VSCODE_SETTINGS_DIR="$HOME/.config/Code/User"
 
 setup_vscode_settings() {
     log_info "Setting up vscode settings..."
