@@ -41,5 +41,13 @@
     {
         "key": "cmd+p",
         "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "shift+cmd+g",
+        "command": "-editor.action.announceCursorPosition"
+    },
+    {
+        "key": "ctrl+cmd+s",
+        "command": "workbench.action.editorLayoutSingle"
     }
 ]

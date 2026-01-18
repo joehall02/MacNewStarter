@@ -6,21 +6,25 @@
 
 # Utility function for logging info
 log_info() {
+    printf "\n"
     echo "ℹ️ [INFO] $*"
 }
 
 # Utility function for logging success
 log_success() {
+    printf "\n"
     echo "✅ [SUCCESS] $*"
 }
 
 # Utility function for logging warnings
 log_warning() {
+    printf "\n"
     echo "⚠️ [WARNING] $*"
 }
 
 # Utility function for logging errors
 log_error() {
+    printf "\n"
     echo "🛑 [ERROR] $*"
 }
 

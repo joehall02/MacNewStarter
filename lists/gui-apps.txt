@@ -6,6 +6,8 @@ google-chrome
 spotify
 jellyfin
 retroarch-metal
+yacreader
+vlc
 
 # Utilities
 logi-options+
@@ -18,6 +20,8 @@ obs
 tailscale
 malwarebytes
 lm-studio
+utm
+crystalfetch
 
 # Developer
 visual-studio-code

@@ -10,3 +10,4 @@ asciiquarium
 font-sf-pro
 starship
 caddy
+cloc
