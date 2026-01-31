@@ -166,3 +166,32 @@ confirm_action() {
         return 1
     fi
 }
+
+setup_vscode_settings() {
+    local settings_dir="$1"
+    local home_settings_dir="$2"
+    local app_name="$3"
+
+    VSCODE_SETTINGS_DIR="$settings_dir"
+    HOME_VSCODE_SETTINGS_DIR="$home_settings_dir"
+
+    log_info "Setting up $app_name settings..."
+    
+    # Check if vscode settings directory exists in project
+    if [[ ! -d "$VSCODE_SETTINGS_DIR" ]]; then
+        log_warning "$app_name settings directory not found: $VSCODE_SETTINGS_DIR"
+        exit 0
+    fi
+    
+    # Iterate through settings files in vscode/
+    for settings_file in "$VSCODE_SETTINGS_DIR"/*; do
+        source_file="$settings_file"
+        target_file="$HOME_VSCODE_SETTINGS_DIR/$(basename "$settings_file")"
+
+        if [[ -f "$source_file" ]]; then
+            create_symlink "$source_file" "$target_file"
+        else
+            log_warning "Setting file $(basename "$settings_file") not found in $VSCODE_SETTINGS_DIR, skipping..."
+        fi
+    done
+}

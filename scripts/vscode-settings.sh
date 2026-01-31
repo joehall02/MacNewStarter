@@ -6,48 +6,27 @@ if ! check_bash_version; then
     exit 0
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
-VSCODE_SETTINGS_DIR="$PROJECT_ROOT/vscode"
-HOME_VSCODE_SETTINGS_DIR="$HOME/Library/Application Support/Code/User"
-
-setup_vscode_settings() {
-    log_info "Setting up vscode settings..."
-    
-    # Check if vscode settings directory exists in project
-    if [[ ! -d "$VSCODE_SETTINGS_DIR" ]]; then
-        log_warning "VSCode settings directory not found: $VSCODE_SETTINGS_DIR"
-        exit 0
-    fi
-    
-    # Iterate through settings files in vscode/
-    for settings_file in "$VSCODE_SETTINGS_DIR"/*; do
-        source_file="$settings_file"
-        target_file="$HOME_VSCODE_SETTINGS_DIR/$(basename "$settings_file")"
-
-        if [[ -f "$source_file" ]]; then
-            create_symlink "$source_file" "$target_file"
-        else
-            log_warning "Setting file $(basename "$settings_file") not found in $VSCODE_SETTINGS_DIR, skipping..."
-        fi
-    done
-}
-
 main() {
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+    VSCODE_SETTINGS_URL="$PROJECT_ROOT/vscode"
+    HOME_VSCODE_SETTINGS_DIR="$HOME/Library/Application Support/Code/User"
+    APP_NAME="VS Code"
+
     # Confirm vscode settings setup
-    if ! confirm_action "setting up vscode settings"; then
+    if ! confirm_action "setting up $APP_NAME settings"; then
         exit 0
     fi
     
-    log_info "Starting vscode settings setup..."
+    log_info "Starting $APP_NAME settings setup..."
 
-    if setup_vscode_settings; then
-        log_success "🎉 VSCode settings setup completed!"
-        log_info "All changes to vscode settings will now be git tracked in this repository"
-        log_info "VSCode settings are stored in: $VSCODE_SETTINGS_DIR"
-        log_info "Home directory vscode settings are symlinked to the project"
+    if setup_vscode_settings "$VSCODE_SETTINGS_URL" "$HOME_VSCODE_SETTINGS_DIR" "$APP_NAME"; then
+        log_success "🎉 $APP_NAME settings setup completed!"
+        log_info "All changes to $APP_NAME settings will now be git tracked in this repository"
+        log_info "$APP_NAME settings are stored in: $VSCODE_SETTINGS_URL"
+        log_info "Home directory $APP_NAME settings are symlinked to the project"
     else 
-        log_error "VSCode settings setup failed — missing or invalid directory."
+        log_error "$APP_NAME settings setup failed — missing or invalid directory."
     fi
 }
 
