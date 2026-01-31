@@ -77,6 +77,11 @@ install_vscode_extensions() {
     $ROOT_DIR/scripts/vscode-extensions.sh
 }
 
+# Function to install Cursor extensions
+install_cursor_extensions() {
+    $ROOT_DIR/scripts/cursor-extensions.sh
+}
+
 # Function to install GUI applications
 install_gui_apps() {
     $ROOT_DIR/scripts/gui-apps.sh
@@ -100,6 +105,7 @@ Commands:
   install-packages       Install extra packages
   install-gui-apps       Install GUI applications
   install-vscode-exts    Install VSCode extensions
+  install-cursor-exts    Install Cursor extensions
   install-homebrew       Install Homebrew
   install-xcode-cli      Install Xcode Command Line Tools
   install-zap-zsh        Install Zap ZSH
@@ -133,6 +139,7 @@ run_subcommand() {
         install-packages)       install_packages "$@" ;;
         install-gui-apps)       install_gui_apps "$@" ;;
         install-vscode-exts)    install_vscode_extensions "$@" ;;
+        install-cursor-exts)    install_cursor_extensions "$@" ;;
         install-homebrew)       install_homebrew "$@" ;;
         install-xcode-cli)      install_xcode_cli_tools "$@" ;;
         install-zap-zsh)        install_zap_zsh "$@" ;;
@@ -147,6 +154,7 @@ run_subcommand() {
             install_packages
             install_gui_apps
             install_vscode_extensions
+            install_cursor_extensions
             install_zap_zsh
             install_oh_my_zsh
             setup_dotfiles
@@ -184,14 +192,15 @@ show_menu_and_run() {
     echo "6 ) Install Packages"
     echo "7 ) Install GUI Apps"
     echo "8 ) Install VSCode Extensions"
-    echo "9 ) Install Zap ZSH"
-    echo "10 ) Install Oh My Zsh"
-    echo "11 ) Setup Dotfiles"
-    echo "12 ) Setup Configs"
-    echo "13 ) Setup Docker"
-    echo "14 ) Setup VSCode Settings"
-    echo "15 ) Setup Cursor Settings"
-    echo "16 ) Quit"
+    echo "9 ) Install Cursor Extensions"
+    echo "10 ) Install Zap ZSH"
+    echo "11 ) Install Oh My Zsh"
+    echo "12 ) Setup Dotfiles"
+    echo "13 ) Setup Configs"
+    echo "14 ) Setup Docker"
+    echo "15 ) Setup VSCode Settings"
+    echo "16 ) Setup Cursor Settings"
+    echo "17 ) Quit"
     echo
 
     read -rp "Enter: " choice
@@ -206,6 +215,7 @@ show_menu_and_run() {
             install_packages
             install_gui_apps
             install_vscode_extensions
+            install_cursor_extensions
             install_zap_zsh
             install_oh_my_zsh
             setup_dotfiles
@@ -221,14 +231,15 @@ show_menu_and_run() {
         6) install_packages ;;
         7) install_gui_apps ;;
         8) install_vscode_extensions ;;
-        9) install_zap_zsh ;;
-        10) install_oh_my_zsh ;;
-        11) setup_dotfiles ;;
-        12) setup_configs ;;
-        13) setup_docker ;;
-        14) setup_vscode_settings ;;
-        15) setup_cursor_settings ;;
-        16)
+        9) install_cursor_extensions ;;
+        10) install_zap_zsh ;;
+        11) install_oh_my_zsh ;;
+        12) setup_dotfiles ;;
+        13) setup_configs ;;
+        14) setup_docker ;;
+        15) setup_vscode_settings ;;
+        16) setup_cursor_settings ;;
+        17)
             echo "Exiting..."
             return 0
             ;;

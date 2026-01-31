@@ -1,5 +1,7 @@
 #!/opt/homebrew/bin/bash
 
+# TODO: Create helper function as to avoid repeating vscode-extensions file
+
 source "$(dirname "$0")/../utils/helpers.sh"
 
 if ! check_bash_version; then
