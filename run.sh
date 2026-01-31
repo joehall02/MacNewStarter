@@ -67,6 +67,11 @@ setup_vscode_settings() {
     $ROOT_DIR/scripts/vscode-settings.sh
 }
 
+# Function to setup cursor settings symlinking
+setup_cursor_settings() {
+    $ROOT_DIR/scripts/cursor-settings.sh
+}
+
 # Function to install VSCode extensions
 install_vscode_extensions() {
     $ROOT_DIR/scripts/vscode-extensions.sh
@@ -90,6 +95,7 @@ Commands:
   setup-configs          Setup configs via symlinks
   setup-docker           Setup Docker symlinks
   setup-vscode-settings  Setup VSCode settings symlinks
+  setup-cursor-settings  Setup Cursor settings symlinks
   install-cli-tools      Install CLI tools
   install-packages       Install extra packages
   install-gui-apps       Install GUI applications
@@ -122,6 +128,7 @@ run_subcommand() {
         setup-configs)          setup_configs "$@" ;;
         setup-docker)           setup_docker "$@" ;;
         setup-vscode-settings)  setup_vscode_settings "$@" ;;
+        setup-cursor-settings)  setup_cursor_settings "$@" ;;
         install-cli-tools)      install_cli_tools "$@" ;;
         install-packages)       install_packages "$@" ;;
         install-gui-apps)       install_gui_apps "$@" ;;
@@ -146,6 +153,7 @@ run_subcommand() {
             setup_configs
             setup_docker
             setup_vscode_settings
+            setup_cursor_settings
             ;;
         help|-h|--help|"")
             print_help
@@ -182,7 +190,8 @@ show_menu_and_run() {
     echo "12 ) Setup Configs"
     echo "13 ) Setup Docker"
     echo "14 ) Setup VSCode Settings"
-    echo "15 ) Quit"
+    echo "15 ) Setup Cursor Settings"
+    echo "16 ) Quit"
     echo
 
     read -rp "Enter: " choice
@@ -203,6 +212,7 @@ show_menu_and_run() {
             setup_configs
             setup_docker
             setup_vscode_settings
+            setup_cursor_settings
             ;;
         2) install_xcode_cli_tools ;;
         3) install_homebrew ;;
@@ -217,7 +227,8 @@ show_menu_and_run() {
         12) setup_configs ;;
         13) setup_docker ;;
         14) setup_vscode_settings ;;
-        15)
+        15) setup_cursor_settings ;;
+        16)
             echo "Exiting..."
             return 0
             ;;
