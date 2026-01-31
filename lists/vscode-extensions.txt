@@ -16,3 +16,4 @@ ms-python.python
 continue.continue
 ms-vscode-remote.remote-ssh
 streetsidesoftware.code-spell-checker
+redhat.vscode-yaml

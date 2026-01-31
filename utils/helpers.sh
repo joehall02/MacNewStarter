@@ -58,6 +58,14 @@ check_vs_code_is_installed() {
     fi
 }
 
+# Utility function to ensure Cursor CLI is available
+check_cursor_is_installed() {
+    if ! command -v code >/dev/null 2>&1; then
+        log_error "Cursor CLI ('cursor') not found in PATH."
+        return 1
+    fi
+}
+
 # =========================================
 # Installers
 # =========================================
@@ -100,7 +108,7 @@ install_brew_gui_app() {
     fi
 }
 
-# Utility function to install VSCode extension
+# Utility function to install VSCode extensions
 install_vscode_extension() {
     extension="$1"
 
@@ -114,6 +122,23 @@ install_vscode_extension() {
     
     if ! code --install-extension "$extension"; then
         log_warning "VSCode extension '$extension' does not exist."
+    fi
+}
+
+# Utility function to install Cursor extensions
+install_cursor_extension() {
+    extension="$1"
+
+    # Check if the extension is already installed
+    if cursor --list-extensions | grep -q "^$extension$"; then
+        log_info "Cursor extension '$extension' is already installed."
+        return 0
+    fi
+
+    log_info "Installing Cursor extension '$extension'..."
+    
+    if ! cursor --install-extension "$extension"; then
+        log_warning "Cursor extension '$extension' does not exist."
     fi
 }
 
