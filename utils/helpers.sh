@@ -177,21 +177,37 @@ setup_vscode_settings() {
 
     log_info "Setting up $app_name settings..."
     
-    # Check if vscode settings directory exists in project
-    if [[ ! -d "$VSCODE_SETTINGS_DIR" ]]; then
-        log_warning "$app_name settings directory not found: $VSCODE_SETTINGS_DIR"
-        exit 0
-    fi
-    
-    # Iterate through settings files in vscode/
-    for settings_file in "$VSCODE_SETTINGS_DIR"/*; do
-        source_file="$settings_file"
-        target_file="$HOME_VSCODE_SETTINGS_DIR/$(basename "$settings_file")"
-
-        if [[ -f "$source_file" ]]; then
-            create_symlink "$source_file" "$target_file"
-        else
-            log_warning "Setting file $(basename "$settings_file") not found in $VSCODE_SETTINGS_DIR, skipping..."
+    vscode_settings_symlink() {
+        # Check if vscode settings directory exists in project
+        if [[ ! -d "$VSCODE_SETTINGS_DIR" ]]; then
+            log_warning "$app_name settings directory not found: $VSCODE_SETTINGS_DIR"
+            return 1
         fi
-    done
+        
+        # Iterate through settings files in vscode/
+        for settings_file in "$VSCODE_SETTINGS_DIR"/*; do
+            source_file="$settings_file"
+            target_file="$HOME_VSCODE_SETTINGS_DIR/$(basename "$settings_file")"
+
+            if [[ -f "$source_file" ]]; then
+                create_symlink "$source_file" "$target_file"
+            else
+                log_warning "Setting file $(basename "$settings_file") not found in $VSCODE_SETTINGS_DIR, skipping..."
+            fi
+        done
+    }
+
+    main() {
+        if vscode_settings_symlink; then
+            log_success "🎉 $app_name settings setup completed!"
+            log_info "All changes to $app_name settings will now be git tracked in this repository"
+            log_info "$app_name settings are stored in: $VSCODE_SETTINGS_DIR"
+            log_info "Home directory $app_name settings are symlinked to the project"
+        else 
+            log_error "$app_name settings setup failed — missing or invalid directory."
+            return 1
+        fi
+    }
+
+    main "$@"
 }
