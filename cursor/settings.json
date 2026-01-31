@@ -1,0 +1,11 @@
+{
+    "workbench.sideBar.location": "right",
+    "editor.fontFamily": "MesloLGL Nerd Font Mono",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorStyleInactive": "line",
+    "editor.minimap.enabled": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth": 100
+}
