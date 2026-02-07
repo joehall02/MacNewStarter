@@ -42,7 +42,7 @@ A personal, modular setup script for quickly configuring a new Mac (Apple Silico
 - **VSCode Settings** (from `vscode/`, symlinked to `~/Library/Application Support/Code/User/`)
 - **Zap Zsh plugin manager**
 
-## Customization
+## Customisation
 
 - **Add or edit dotfiles:** Place your dotfiles in the `dotfiles/` directory.
 - **Add or edit configs:** Place your app configs in the `configs/` directory (subfolders supported).

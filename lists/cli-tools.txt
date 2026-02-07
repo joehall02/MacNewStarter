@@ -16,3 +16,4 @@ ollama
 sst/tap/opencode
 wget
 netdata
+lazygit

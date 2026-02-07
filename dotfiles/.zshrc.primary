@@ -44,12 +44,6 @@ fpath=(
 # =========================================
 fpath=(/$HOME/.docker/completions $fpath)
 
-# =========================================
-# NVM (Node Version Manager) setup
-# =========================================
-export NVM_DIR="$HOME/.nvm"
-source "$(brew --prefix nvm)/nvm.sh"
-
 # Enable nvm tab completion
 [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 
@@ -62,8 +56,3 @@ source <(fzf --zsh)
 # Starship Prompt
 # =========================================
 eval "$(starship init zsh)"
-
-# =========================================
-# LM Studio setup
-# =========================================
-export PATH="$PATH:/$HOME/.lmstudio/bin"

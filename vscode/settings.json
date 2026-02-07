@@ -4,7 +4,10 @@
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.cursorStyleInactive": "line",
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
     },
     "prettier.printWidth": 100,
     "continue.showInlineTip": false,
@@ -27,9 +30,15 @@
         "*": false
     },
     "workbench.sideBar.location": "right",
-    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": true,
     "files.associations": {
         ".zshrc.ohmyzsh": "shellscript",
         ".zshrc.primary": "shellscript"
-    }
+    },
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "window.commandCenter": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "eslint.format.enable": true
 }
