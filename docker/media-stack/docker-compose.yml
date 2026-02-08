@@ -65,7 +65,27 @@ services:
     restart: unless-stopped
     networks:
       - media-network
-
+ 
+  # ========================
+  # Shelfmark - Books
+  # ========================
+  shelfmark:
+    image: ghcr.io/calibrain/shelfmark:latest
+    container_name: shelfmark
+    environment:
+      - PUID=${SHELFMARK_PUID}
+      - PGID=${SHELFMARK_PGID}
+      - UMASK_SET=000
+    volumes:
+      - ${SHELFMARK_CONFIG_PATH}:/config
+      - ${MEDIA_BOOKS_PATH}:/books
+      - ${MEDIA_DOWNLOADS_PATH}:/downloads
+    ports:
+      - "${SHELFMARK_PORT}:8084"
+    restart: unless-stopped
+    networks:
+      - media-network
+      
   # ========================
   # Prowlarr - Indexer Manager
   # ========================
