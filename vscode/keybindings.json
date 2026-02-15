@@ -49,5 +49,27 @@
     {
         "key": "ctrl+cmd+s",
         "command": "workbench.action.editorLayoutSingle"
-    }
+    },
+    {
+        "key": "alt+f",
+        "command": "search.action.focusSearchList"
+	},
+	{
+		"key": "shift+cmd+k",
+		"command": "continue.focusContinueInput"
+	},
+	{
+		"key": "cmd+l",
+		"command": "-continue.focusContinueInput"
+	},
+	{
+		"key": "cmd+y",
+		"command": "continue.acceptDiff",
+		"when": "continue.diffVisible"
+	},
+	{
+		"key": "shift+cmd+enter",
+		"command": "-continue.acceptDiff",
+		"when": "continue.diffVisible"
+	}
 ]

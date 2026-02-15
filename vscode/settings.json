@@ -37,8 +37,9 @@
     },
     "markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "window.commandCenter": false,
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "eslint.format.enable": true
+    "eslint.format.enable": true,
+    "editor.autoIndentOnPaste": true,
+    "editor.detectIndentation": false,
+    "workbench.startupEditor": "none",
+	"editor.insertSpaces": false
 }
