@@ -1,68 +1,66 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "theme": "main",
-
-  "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama (local)",
-      "options": {
-        "baseURL": "http://localhost:11434/v1"
-      },
-      "models": {
-        "llama3.1": {
-          "name": "Llama 3.1"
-        },
-        "deepseek-r1:14b": {
-            "name": "deepseek-r1:14b"
-        }
-      }
-    },
-
-    "lmstudio": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "LM Studio (local)",
-      "options": {
-        "baseURL": "http://localhost:1234/v1"
-      },
-      "models": {
-        "openai/gpt-oss-20b": {
-          "name": "openai/gpt-oss-20b"
-        },
-        "qwen/qwen2.5-coder-14b": {
-          "name": "qwen/qwen2.5-coder-14b"
-        }
-      }
-    },
-
-    "openai": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "OpenAI (API)",
-      "options":{
-        "baseURL": "https://api.openai.com/v1"
-      }
-    }
-  },
-  
-  "tools": {
-    "write": true,
-    "edit": true,
-    "bash": true,
-    "read": true,
-    "grep": true,
-    "glob": true,
-    "list": true,
-    "patch": true,
-    "todowrite": true,
-    "todoread": true,
-    "webfetch": true
-  },
-
-  "permission": {
-    "edit": "ask",
-    "bash": "ask",
-    "webfetch": "ask",
-    "doom_loop": "ask",
-    "external_directory": "ask"
-  }
+	"$schema": "https://opencode.ai/config.json",
+	"theme": "main",
+	"provider": {
+		"ollama": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Ollama (local)",
+			"options": {
+				"baseURL": "http://localhost:11434/v1"
+			},
+			"models": {
+				"llama3.1": {
+					"name": "Llama 3.1"
+				},
+				"deepseek-r1:14b": {
+					"name": "deepseek-r1:14b"
+				}
+			}
+		},
+		"lmstudio": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "LM Studio (local)",
+			"options": {
+				"baseURL": "http://localhost:1234/v1"
+			},
+			"models": {
+				"deepseek/deepseek-r1-0528-qwen3-8b@8bit": {
+					"name": "deepseek-r1-0528-qwen3-8b@8bit"
+				},
+				"openai/gpt-oss-20b": {
+					"name": "openai/gpt-oss-20b"
+				},
+				"qwen/qwen2.5-coder-14b": {
+					"name": "qwen/qwen2.5-coder-14b"
+				}
+			}
+		},
+		"openai": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "OpenAI (API)",
+			"options": {
+				"baseURL": "https://api.openai.com/v1"
+			}
+		}
+	},
+	"tools": {
+		"write": true,
+		"edit": true,
+		"bash": true,
+		"read": true,
+		"grep": true,
+		"glob": true,
+		"list": true,
+		"patch": true,
+		"todowrite": true,
+		"todoread": true,
+		"webfetch": true
+	},
+	"permission": {
+		"edit": "ask",
+		"bash": "ask",
+		"webfetch": "ask",
+		"doom_loop": "ask",
+		"external_directory": "ask"
+	}
 }

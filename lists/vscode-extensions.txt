@@ -18,3 +18,5 @@ ms-vscode-remote.remote-ssh
 streetsidesoftware.code-spell-checker
 redhat.vscode-yaml
 dbaeumer.vscode-eslint
+prisma.vscode-graphql
+anthropic.claude-code
