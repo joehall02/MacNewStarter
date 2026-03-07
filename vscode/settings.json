@@ -30,7 +30,6 @@
     "cSpell.enabledFileTypes": {
         "*": false
     },
-    "workbench.sideBar.location": "right",
     "workbench.editor.enablePreview": true,
     "files.associations": {
         ".zshrc.ohmyzsh": "shellscript",
@@ -42,5 +41,6 @@
     "editor.autoIndentOnPaste": true,
     "editor.detectIndentation": false,
     "workbench.startupEditor": "none",
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"workbench.editor.empty.hint": "hidden"
 }
