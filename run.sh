@@ -174,15 +174,15 @@ show_menu_and_run() {
     echo "4 ) Install Packages"
     echo "5 ) Install GUI Apps"
     echo "6 ) Install VSCode Extensions"
-    echo "7 ) Install Zap ZSH"
-    echo "8 ) Install Oh My Zsh"
-    echo "9 ) Setup Dotfiles"
-    echo "10 ) Setup Configs"
-    echo "11 ) Setup Docker"
-    echo "12 ) Setup VSCode Settings"
-    echo "13 ) Quit"
-    echo "9 ) Install Cursor Extensions"
-    echo "16 ) Setup Cursor Settings"
+    echo "7 ) Install Cursor Extensions"
+    echo "8 ) Install Zap ZSH"
+    echo "9 ) Install Oh My Zsh"
+    echo "10 ) Setup Dotfiles"
+    echo "11 ) Setup Configs"
+    echo "12 ) Setup Docker"
+    echo "13 ) Setup VSCode Settings"
+    echo "14 ) Setup Cursor Settings"
+    echo "15 ) Quit"
     echo
 
     read -rp "Enter: " choice
@@ -209,15 +209,15 @@ show_menu_and_run() {
         4) install_packages ;;
         5) install_gui_apps ;;
         6) install_vscode_extensions ;;
-        7) install_zap_zsh ;;
-        8) install_oh_my_zsh ;;
-        9) setup_dotfiles ;;
-        10) setup_configs ;;
-        11) setup_docker ;;
-        12) setup_vscode_settings ;;
-        13)
-        9) install_cursor_extensions ;;
-        16) setup_cursor_settings ;;
+        7) install_cursor_extensions ;;
+        8) install_zap_zsh ;;
+        9) install_oh_my_zsh ;;
+        10) setup_dotfiles ;;
+        11) setup_configs ;;
+        12) setup_docker ;;
+        13) setup_vscode_settings ;;
+        14) setup_cursor_settings ;;
+        15)
             echo "Exiting..."
             return 0
             ;;
