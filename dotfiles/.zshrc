@@ -13,7 +13,7 @@
 # =========================================
 # LM Studio setup
 # =========================================
-export PATH="$PATH:/$HOME/.lmstudio/bin"
+# export PATH="$PATH:/$HOME/.lmstudio/bin"
 
 # =========================================
 # NVM (Node Version Manager) setup

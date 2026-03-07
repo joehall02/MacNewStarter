@@ -22,6 +22,10 @@ plug "atoftegaard-git/zsh-omz-autocomplete"
 autoload -Uz compinit
 zmodload zsh/complist
 
+# =========================================
+# Keybinds
+# =========================================
+
 # Use menu completion (needed for Shift-Tab)
 # setopt menucomplete
 
@@ -29,6 +33,10 @@ zmodload zsh/complist
 # bindkey '^I' expand-or-complete
 bindkey '^[[Z' reverse-menu-complete
 compinit -d "${ZDOTDIR:-$HOME}/.zcompdump"
+
+# Options key cursor back and forth
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # =========================================
 # Add Homebrew and local completions to fpath
@@ -46,6 +54,17 @@ fpath=(/$HOME/.docker/completions $fpath)
 
 # Enable nvm tab completion
 # [ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && . "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
+
+# =========================================
+# FZF setup
+# =========================================
+if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
+if [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi
 
 # =========================================
 # Starship Prompt
