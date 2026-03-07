@@ -35,8 +35,7 @@
         ".zshrc.ohmyzsh": "shellscript",
         ".zshrc.primary": "shellscript"
     },
-    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
-    "window.commandCenter": false,
+	"markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "eslint.format.enable": true,
     "editor.autoIndentOnPaste": true,
     "editor.detectIndentation": false,
