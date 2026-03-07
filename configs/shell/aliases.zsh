@@ -13,6 +13,8 @@ alias mns="$MAC_NEW_STARTER_DIR/run.sh" # MacNewStarter CLI entrypoint
 alias mns-dir="$MAC_NEW_STARTER_DIR"
 alias savepoint-web="$SAVEPOINT_WEB_DIR"
 alias dev="$DEV_DIR"
+alias icloud="$ICLOUD_DIR"
+alias obsidian-dir="$OBSIDIAN_DIR"
 
 alias lazygit='CONFIG_DIR="$HOME/.config/lazygit" lazygit'
 

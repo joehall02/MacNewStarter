@@ -38,6 +38,7 @@
     "markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "window.commandCenter": false,
     "eslint.format.enable": true,
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
     "editor.autoIndentOnPaste": true,
     "editor.detectIndentation": false,
     "workbench.startupEditor": "none",

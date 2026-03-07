@@ -23,6 +23,7 @@ lm-studio
 utm
 crystalfetch
 notunes
+obsidian
 
 # Developer
 visual-studio-code
