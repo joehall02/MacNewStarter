@@ -42,5 +42,6 @@
     "editor.autoIndentOnPaste": true,
     "editor.detectIndentation": false,
     "workbench.startupEditor": "none",
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"chat.disableAIFeatures": true
 }
