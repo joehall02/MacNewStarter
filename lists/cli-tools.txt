@@ -17,3 +17,5 @@ sst/tap/opencode
 wget
 netdata
 lazygit
+lukehinds/nono
+claude-code

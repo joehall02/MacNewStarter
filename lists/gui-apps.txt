@@ -39,6 +39,7 @@ figma
 sourcetree
 gitkraken
 xcodes
+exo
 
 # Fonts
 font-meslo-lg-nerd-font

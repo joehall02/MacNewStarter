@@ -18,3 +18,5 @@ alias obsidian-dir="$OBSIDIAN_DIR"
 
 alias lazygit='CONFIG_DIR="$HOME/.config/lazygit" lazygit'
 
+alias claude='nono run --allow-cwd --profile always-further/claude -- claude'
+alias opencode='nono run --allow-cwd --profile always-further/opencode -- opencode'
