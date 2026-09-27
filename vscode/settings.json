@@ -43,5 +43,8 @@
     "editor.detectIndentation": false,
     "workbench.startupEditor": "none",
 	"editor.insertSpaces": false,
-	"chat.disableAIFeatures": true
+	"chat.disableAIFeatures": true,
+	"typescript.referencesCodeLens.enabled": true,
+	"telemetry.feedback.enabled": false,
+	"telemetry.telemetryLevel": "off"
 }

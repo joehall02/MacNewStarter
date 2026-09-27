@@ -65,6 +65,27 @@ services:
     restart: unless-stopped
     networks:
       - media-network
+
+  # ========================
+  # Lidarr - Music
+  # ========================
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=${LIDARR_PUID}
+      - PGID=${LIDARR_PGID}
+      - TZ=${TZ}
+      - UMASK_SET=000
+    volumes:
+      - ${LIDARR_CONFIG_PATH}:/config
+      - ${MEDIA_MUSIC_PATH}:/music
+      - ${MEDIA_DOWNLOADS_PATH}:/downloads
+    ports:
+      - "${LIDARR_PORT}:8686"
+    restart: unless-stopped
+    networks:
+      - media-network
  
   # ========================
   # Shelfmark - Books
@@ -82,6 +103,28 @@ services:
       - ${MEDIA_DOWNLOADS_PATH}:/downloads
     ports:
       - "${SHELFMARK_PORT}:8084"
+    restart: unless-stopped
+    networks:
+      - media-network
+
+  # ========================
+  # Navidrome - Music
+  # ========================
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    user: ${NAVIDROME_UID}:${NAVIDROME_GID}
+    environment:
+      ND_SCANNER_SCHEDULE: "@every 1h"
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+      ND_ENABLEINSIGHTSCOLLECTOR: false
+    volumes:
+      - ${NAVIDROME_DATA_PATH}:/data
+      - ${MEDIA_AUDIO_PATH}:/music:ro
+    ports:
+      - "${NAVIDROME_PORT}:4533"
     restart: unless-stopped
     networks:
       - media-network
@@ -107,20 +150,20 @@ services:
   # ========================
   # Byparr - Flaresolverr alternative (Bypass cloudflare restrictions)
   # ========================
-  byparr:
-    image: ghcr.io/thephaseless/byparr:latest
-    container_name: byparr
-    environment:
-      - TZ=${TZ}
-    ports:
-      - "${BYPARR_PORT}:8191"
-    restart: unless-stopped
-    init: true
-    build:
-      context: .
-      dockerfile: Dockerfile
-    networks:
-      - media-network
+#   byparr:
+#     image: ghcr.io/thephaseless/byparr:latest
+#     container_name: byparr
+#     environment:
+#       - TZ=${TZ}
+#     ports:
+#       - "${BYPARR_PORT}:8191"
+#     restart: unless-stopped
+#     init: true
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     networks:
+#       - media-network
 
 # ========================
 # Shared Docker Network

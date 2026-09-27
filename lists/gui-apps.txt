@@ -1,6 +1,6 @@
 # Browsers
 firefox
-google-chrome
+ungoogled-chromium
 
 # Entertainment
 spotify
