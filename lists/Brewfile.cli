@@ -25,6 +25,7 @@ brew "netdata"
 brew "lazygit"
 brew "nono"
 brew "neovim"
+brew "tree-sitter-cli"
 brew "ripgrep"
 brew "fd"
 
