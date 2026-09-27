@@ -67,24 +67,19 @@ setup_vscode_settings() {
     $ROOT_DIR/scripts/vscode-settings.sh
 }
 
-# Function to setup cursor settings symlinking
-setup_cursor_settings() {
-    $ROOT_DIR/scripts/cursor-settings.sh
-}
-
 # Function to install VSCode extensions
 install_vscode_extensions() {
     $ROOT_DIR/scripts/vscode-extensions.sh
 }
 
-# Function to install Cursor extensions
-install_cursor_extensions() {
-    $ROOT_DIR/scripts/cursor-extensions.sh
-}
-
 # Function to install GUI applications
 install_gui_apps() {
     $ROOT_DIR/scripts/gui-apps.sh
+}
+
+# Function to check Brewfiles against installed state (installs nothing)
+check_brew() {
+    $ROOT_DIR/scripts/brew-check.sh
 }
 
 backup_docker_services() {
@@ -100,13 +95,12 @@ Commands:
   setup-configs          Setup configs via symlinks
   setup-docker           Setup Docker symlinks
   setup-vscode-settings  Setup VSCode settings symlinks
-  setup-cursor-settings  Setup Cursor settings symlinks
   install-cli-tools      Install CLI tools
   install-packages       Install extra packages
   install-gui-apps       Install GUI applications
   install-vscode-exts    Install VSCode extensions
-  install-cursor-exts    Install Cursor extensions
   install-homebrew       Install Homebrew
+  check-brew             Check Brewfiles against installed packages
   install-xcode-cli      Install Xcode Command Line Tools
   install-zap-zsh        Install Zap ZSH
   install-oh-my-zsh      Install Oh My Zsh
@@ -134,13 +128,12 @@ run_subcommand() {
         setup-configs)          setup_configs "$@" ;;
         setup-docker)           setup_docker "$@" ;;
         setup-vscode-settings)  setup_vscode_settings "$@" ;;
-        setup-cursor-settings)  setup_cursor_settings "$@" ;;
         install-cli-tools)      install_cli_tools "$@" ;;
         install-packages)       install_packages "$@" ;;
         install-gui-apps)       install_gui_apps "$@" ;;
         install-vscode-exts)    install_vscode_extensions "$@" ;;
-        install-cursor-exts)    install_cursor_extensions "$@" ;;
         install-homebrew)       install_homebrew "$@" ;;
+        check-brew)             check_brew "$@" ;;
         install-xcode-cli)      install_xcode_cli_tools "$@" ;;
         install-zap-zsh)        install_zap_zsh "$@" ;;
         install-oh-my-zsh)      install_oh_my_zsh "$@" ;;
@@ -154,14 +147,12 @@ run_subcommand() {
             install_packages
             install_gui_apps
             install_vscode_extensions
-            install_cursor_extensions
             install_zap_zsh
             install_oh_my_zsh
             setup_dotfiles
             setup_configs
             setup_docker
             setup_vscode_settings
-            setup_cursor_settings
             ;;
         help|-h|--help|"")
             print_help
@@ -192,15 +183,14 @@ show_menu_and_run() {
     echo "6 ) Install Packages"
     echo "7 ) Install GUI Apps"
     echo "8 ) Install VSCode Extensions"
-    echo "9 ) Install Cursor Extensions"
-    echo "10 ) Install Zap ZSH"
-    echo "11 ) Install Oh My Zsh"
-    echo "12 ) Setup Dotfiles"
-    echo "13 ) Setup Configs"
-    echo "14 ) Setup Docker"
-    echo "15 ) Setup VSCode Settings"
-    echo "16 ) Setup Cursor Settings"
-    echo "17 ) Quit"
+    echo "9 ) Install Zap ZSH"
+    echo "10 ) Install Oh My Zsh"
+    echo "11 ) Setup Dotfiles"
+    echo "12 ) Setup Configs"
+    echo "13 ) Setup Docker"
+    echo "14 ) Setup VSCode Settings"
+    echo "15 ) Check Brewfiles (installs nothing)"
+    echo "16 ) Quit"
     echo
 
     read -rp "Enter: " choice
@@ -215,14 +205,12 @@ show_menu_and_run() {
             install_packages
             install_gui_apps
             install_vscode_extensions
-            install_cursor_extensions
             install_zap_zsh
             install_oh_my_zsh
             setup_dotfiles
             setup_configs
             setup_docker
             setup_vscode_settings
-            setup_cursor_settings
             ;;
         2) install_xcode_cli_tools ;;
         3) install_homebrew ;;
@@ -231,15 +219,14 @@ show_menu_and_run() {
         6) install_packages ;;
         7) install_gui_apps ;;
         8) install_vscode_extensions ;;
-        9) install_cursor_extensions ;;
-        10) install_zap_zsh ;;
-        11) install_oh_my_zsh ;;
-        12) setup_dotfiles ;;
-        13) setup_configs ;;
-        14) setup_docker ;;
-        15) setup_vscode_settings ;;
-        16) setup_cursor_settings ;;
-        17)
+        9) install_zap_zsh ;;
+        10) install_oh_my_zsh ;;
+        11) setup_dotfiles ;;
+        12) setup_configs ;;
+        13) setup_docker ;;
+        14) setup_vscode_settings ;;
+        15) check_brew ;;
+        16)
             echo "Exiting..."
             return 0
             ;;

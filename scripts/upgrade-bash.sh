@@ -12,7 +12,17 @@ if ! check_bash_version; then
         exit 0
     fi
 
-    install_via_brew bash
+    # Installed directly rather than via a Brewfile: this is a bootstrap step that
+    # runs under system Bash 3.2, before the Brewfiles are used, for one formula.
+    if brew list --formula bash >/dev/null 2>&1; then
+        log_info "bash is already installed via Homebrew."
+    else
+        log_info "Installing bash..."
+        if ! brew install bash; then
+            log_error "Failed to install bash via Homebrew."
+            exit 1
+        fi
+    fi
 
     BREW_BASH="$(brew --prefix)/bin/bash"
 

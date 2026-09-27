@@ -1,0 +1,53 @@
+# MacNewStarter — GUI applications
+#
+#   Install:  brew bundle install --file=lists/Brewfile.gui
+#   Verify:   brew bundle check   --file=lists/Brewfile.gui --verbose
+#   Snapshot: brew bundle dump    --file=lists/Brewfile.gui --cask --tap --force
+
+tap "nikitabobko/tap", trusted: true
+
+# Browsers
+cask "firefox"
+cask "ungoogled-chromium"
+cask "librewolf"
+
+# Entertainment
+cask "spotify"
+cask "jellyfin"
+cask "retroarch-metal"
+cask "yacreader"
+cask "vlc"
+
+# Utilities
+cask "logi-options+"
+cask "linearmouse"
+cask "nikitabobko/tap/aerospace", trusted: true
+cask "stats"
+cask "surfshark"
+cask "balenaetcher"
+cask "obs"
+cask "tailscale-app"
+cask "malwarebytes"
+cask "lm-studio"
+cask "utm"
+cask "crystalfetch"
+cask "notunes"
+cask "obsidian"
+
+# Developer
+cask "visual-studio-code"
+cask "dbeaver-community"
+cask "bruno"
+cask "docker-desktop"
+cask "iterm2"
+cask "arduino-ide"
+cask "proxyman"
+cask "figma"
+cask "gitkraken"
+cask "xcodes-app"
+cask "exo"
+
+# Fonts
+cask "font-meslo-lg-nerd-font"
+cask "font-caskaydia-cove-nerd-font"
+cask "sf-symbols"

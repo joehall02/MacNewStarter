@@ -1,0 +1,32 @@
+# MacNewStarter — CLI tools
+#
+#   Install:  brew bundle install --file=lists/Brewfile.cli
+#   Verify:   brew bundle check   --file=lists/Brewfile.cli --verbose
+#   Snapshot: brew bundle dump    --file=lists/Brewfile.cli --formula --force
+
+brew "nano"
+brew "nvm"
+brew "htop"
+brew "btop"
+brew "gh"
+brew "sqlite"
+brew "python@3.13"
+brew "imagemagick"
+brew "openjdk"
+brew "virtualenv"
+brew "git"
+brew "jq"
+brew "fzf"
+brew "lsd"
+brew "ollama"
+brew "opencode"
+brew "wget"
+brew "netdata"
+brew "lazygit"
+brew "nono"
+brew "neovim"
+brew "ripgrep"
+brew "fd"
+
+# Distributed as a cask, despite being a CLI tool.
+cask "claude-code"

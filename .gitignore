@@ -3,3 +3,10 @@
 
 # Lazygit state file
 /configs/lazygit/state.yml
+
+# opencode plugin-install artifacts
+/configs/opencode/node_modules/
+/configs/opencode/package.json
+/configs/opencode/package-lock.json
+/configs/opencode/bun.lock
+/configs/opencode/.env

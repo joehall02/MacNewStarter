@@ -58,53 +58,52 @@ check_vs_code_is_installed() {
     fi
 }
 
-# Utility function to ensure Cursor CLI is available
-check_cursor_is_installed() {
-    if ! command -v code >/dev/null 2>&1; then
-        log_error "Cursor CLI ('cursor') not found in PATH."
-        return 1
-    fi
-}
-
 # =========================================
 # Installers
 # =========================================
 
-# Utility function to install a package using Homebrew
-install_via_brew() {
-    package="$1"
+# Utility function to install everything declared in a Brewfile.
+# Unlike a per-package loop, brew bundle resolves installed state once, batches
+# the installs, and exits non-zero naming how many entries failed — so a stale
+# or renamed entry surfaces as an error instead of a warning buried in the log.
+install_via_brewfile() {
+    local brewfile="$1"
+    local label="$2"
 
-    # Check if the package exists in Homebrew
-    if ! brew info "$package" >/dev/null 2>&1; then
-        log_warning "Package '$package' not found in Homebrew."
-        return 0
+    if [[ ! -f "$brewfile" ]]; then
+        log_error "Brewfile not found: $brewfile"
+        return 1
     fi
 
-    # Install package if not already installed
-    if ! brew list -1 | grep -q "^$package\$"; then
-        log_info "Installing $package..."
-        brew install "$package"
-    else
-        log_info "$package is already installed."
+    log_info "Installing $label from $(basename "$brewfile")..."
+
+    # --no-upgrade keeps a setup run from turning into a full upgrade of
+    # everything already on the machine.
+    if ! brew bundle install --file="$brewfile" --no-upgrade --verbose; then
+        log_error "Some $label failed to install. See the brew bundle output above."
+        return 1
     fi
 }
 
-# Utility function to install Homebrew GUI apps
-install_brew_gui_app() {
-    app="$1"
+# Utility function to report whether a Brewfile is fully satisfied.
+# Installs nothing; returns non-zero when anything is missing.
+check_via_brewfile() {
+    local brewfile="$1"
+    local label="$2"
 
-    # Check if the app exists in Homebrew
-    if ! brew info "$app" >/dev/null 2>&1; then
-        log_warning "App '$app' not found in Homebrew."
-        return 0
+    if [[ ! -f "$brewfile" ]]; then
+        log_error "Brewfile not found: $brewfile"
+        return 1
     fi
 
-    # Install app if not already installed
-    if ! brew list --cask | grep -q "^$app\$"; then
-        log_info "Installing $app..."
-        brew install --cask "$app"
+    # --no-upgrade matches install_via_brewfile, so this reports only what is
+    # genuinely missing. Without it, check counts merely-outdated packages as
+    # unmet and contradicts what the install commands would actually do.
+    if brew bundle check --file="$brewfile" --no-upgrade --verbose; then
+        log_success "$label: all entries installed."
     else
-        log_info "$app is already installed."
+        log_warning "$label: missing entries listed above."
+        return 1
     fi
 }
 
@@ -122,23 +121,6 @@ install_vscode_extension() {
     
     if ! code --install-extension "$extension"; then
         log_warning "VSCode extension '$extension' does not exist."
-    fi
-}
-
-# Utility function to install Cursor extensions
-install_cursor_extension() {
-    extension="$1"
-
-    # Check if the extension is already installed
-    if cursor --list-extensions | grep -q "^$extension$"; then
-        log_info "Cursor extension '$extension' is already installed."
-        return 0
-    fi
-
-    log_info "Installing Cursor extension '$extension'..."
-    
-    if ! cursor --install-extension "$extension"; then
-        log_warning "Cursor extension '$extension' does not exist."
     fi
 }
 

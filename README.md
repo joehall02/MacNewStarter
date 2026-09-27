@@ -33,8 +33,8 @@ A personal, modular setup script for quickly configuring a new Mac (Apple Silico
 ## What Gets Installed
 
 - **Xcode Command Line Tools**
-- **Homebrew** (and all packages in `lists/cli-tools.txt` and `lists/packages.txt`)
-- **GUI Apps** (from `lists/gui-apps.txt`)
+- **Homebrew** (and all packages in `lists/Brewfile.cli` and `lists/Brewfile.packages`)
+- **GUI Apps** (from `lists/Brewfile.gui`)
 - **VSCode Extensions** (from `lists/vscode-extensions.txt`)
 - **Dotfiles** (from `dotfiles/`, symlinked to your home directory)
 - **Configs** (from `configs/`, symlinked to `~/.config/`)
@@ -49,6 +49,41 @@ A personal, modular setup script for quickly configuring a new Mac (Apple Silico
 - **Add or edit docker files:** Place your docker files/folders in the `docker/` directory (subfolders supported).
 - **Add or edit vscode settings:** Place your vscode settings in the `vscode/` directory.
 - **Edit package/app lists:** Update the files in `lists/` to match your preferences.
+
+### Homebrew lists
+
+CLI tools, extra packages and GUI apps are declared as [Brewfiles](https://docs.brew.sh/Brew-Bundle-and-Brewfile)
+and installed with `brew bundle`, which batches the installs and exits non-zero
+naming how many entries failed — so a renamed or removed package is a visible
+error rather than a warning lost in the log.
+
+```sh
+mns check-brew    # report what is missing, installing nothing
+```
+
+Useful commands when editing the lists by hand:
+
+```sh
+brew bundle check   --file=lists/Brewfile.gui --verbose   # what is missing
+brew bundle dump    --file=lists/Brewfile.gui --cask --tap --force  # snapshot this Mac
+brew bundle cleanup --file=lists/Brewfile.gui             # dry-run: what is NOT declared
+```
+
+`brew bundle cleanup` only removes things once passed `--force`, and it judges a
+single Brewfile at a time — so never point it at one of these three files
+expecting it to understand the other two. It is deliberately not wired into any
+`mns` command.
+
+Installs use `--no-upgrade`, so setting up a machine never turns into a full
+upgrade of everything already on it. To upgrade deliberately:
+
+```sh
+brew bundle upgrade --file=lists/Brewfile.cli
+```
+
+VSCode extensions are the one list that is still a plain `.txt`:
+`lists/vscode-extensions.txt`, installed by `scripts/vscode-extensions.sh`
+through the `code` CLI rather than through `brew bundle`.
 
 ## Notes
 

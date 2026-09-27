@@ -1,0 +1,23 @@
+# MacNewStarter — extra packages (toys, fonts, small utilities)
+#
+#   Install:  brew bundle install --file=lists/Brewfile.packages
+#   Verify:   brew bundle check   --file=lists/Brewfile.packages --verbose
+#   Snapshot: brew bundle dump    --file=lists/Brewfile.packages --formula --force
+
+brew "tree"
+brew "pipes-sh"
+brew "fastfetch"
+brew "cmatrix"
+brew "cbonsai"
+brew "sl"
+brew "asciiquarium"
+brew "starship"
+brew "caddy"
+brew "cloc"
+
+# Fonts are casks, even the non-nerd-font ones.
+cask "font-sf-pro"
+
+tap "felixkratz/formulae", trusted: true
+brew "felixkratz/formulae/sketchybar"
+brew "felixkratz/formulae/borders"
