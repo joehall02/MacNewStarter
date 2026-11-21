@@ -16,6 +16,16 @@
 export PATH="$PATH:/$HOME/.lmstudio/bin"
 
 # =========================================
+# Editor
+# =========================================
+export EDITOR=nvim
+
+# =========================================
+# SOPS - Tell sops where the age key is (macOS looks elsewhere by default)
+# =========================================
+export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
+
+# =========================================
 # NVM (Node Version Manager) setup
 # =========================================
 export NVM_DIR="$HOME/.nvm"

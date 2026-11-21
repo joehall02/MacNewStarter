@@ -20,3 +20,4 @@ redhat.vscode-yaml
 dbaeumer.vscode-eslint
 prisma.vscode-graphql
 anthropic.claude-code
+bbenoist.nix

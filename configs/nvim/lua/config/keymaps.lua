@@ -13,3 +13,13 @@ vim.keymap.set("n", "<leader>ci", function()
     },
   })
 end, { desc = "ESLint Fix All (file)" })
+
+-- Nix: same key, fixes all statix problems in the current file then runs nixfmt
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "nix",
+  callback = function(ev)
+    vim.keymap.set("n", "<leader>ci", function()
+      require("conform").format({ formatters = { "statix", "nixfmt" } })
+    end, { buffer = ev.buf, desc = "Statix Fix All (file)" })
+  end,
+})

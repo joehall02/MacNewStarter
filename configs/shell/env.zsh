@@ -5,6 +5,7 @@ export DOCKER_BACKUP_DIR="${DOCKER_BACKUP_DIR_ENV}"
 export MAC_NEW_STARTER_DIR="${MAC_NEW_STARTER_DIR_ENV}"
 export SAVEPOINT_WEB_DIR="${SAVEPOINT_WEB_DIR_ENV}"
 export DEV_DIR="${DEV_ENV}"
+export HOMELAB_DIR="${HOMELAB_DIR}"
 
 # =========================================
 # AI Providers

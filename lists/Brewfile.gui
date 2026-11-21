@@ -46,6 +46,7 @@ cask "figma"
 cask "gitkraken"
 cask "xcodes-app"
 cask "exo"
+cask "wireshark"
 
 # Fonts
 cask "font-meslo-lg-nerd-font"

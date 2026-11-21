@@ -28,6 +28,7 @@ brew "neovim"
 brew "tree-sitter-cli"
 brew "ripgrep"
 brew "fd"
+brew "tlrc"
 
 # Distributed as a cask, despite being a CLI tool.
 cask "claude-code"
