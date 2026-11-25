@@ -19,6 +19,12 @@ export OPEN_WEBUI_PORT="${OPEN_WEBUI_PORT_ENV}"
 export OPEN_WEBUI_CONFIG_PATH="${OPEN_WEBUI_CONFIG_PATH_ENV}"
 
 # =========================================
+# Kokoro TTS (Docker compose)
+# =========================================
+export KOKORO_PORT="${KOKORO_PORT_ENV}"
+export KOKORO_API_KEY="${KOKORO_API_KEY_ENV}"
+
+# =========================================
 # Media stack (Docker compose)
 # =========================================
 

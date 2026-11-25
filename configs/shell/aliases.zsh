@@ -18,6 +18,6 @@ alias obsidian-dir="$OBSIDIAN_DIR"
 
 alias lazygit='CONFIG_DIR="$HOME/.config/lazygit" lazygit'
 
-alias nono-claude='nono run --allow-cwd --profile nolabs-ai/claude -- claude'
-
+alias nono-claude='nono run --profile claude -- claude'
+alias nono-pi='nono run --profile pi -- pi'
 alias homelab-dir="$HOMELAB_DIR"

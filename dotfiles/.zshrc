@@ -31,6 +31,13 @@ export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
 export NVM_DIR="$HOME/.nvm"
 source "$(brew --prefix nvm)/nvm.sh"
 
+# =========================================
+# The login Keychain is locked in SSH sessions
+# =========================================
+if [[ -n "$SSH_CONNECTION" ]] && ! security show-keychain-info ~/Library/Keychains/login.keychain-db &>/dev/null; then
+  security unlock-keychain ~/Library/Keychains/login.keychain-db
+fi
+
 export lazygit
 
 # Default to primary setup

@@ -1,0 +1,20 @@
+name: kokoro
+
+# Kokoro text-to-speech for Open WebUI on the homelab. OpenAI-compatible API
+# at /v1/audio/speech. CPU image: Docker on macOS can't use the Apple GPU
+services:
+  kokoro:
+    image: ghcr.io/remsky/kokoro-fastapi-cpu:latest
+    container_name: kokoro
+    environment:
+      # Requests without this key get a 401
+      - 'API_KEYS=["${KOKORO_API_KEY}"]'
+      # Voice used when a request doesn't name one
+      - DEFAULT_VOICE=bf_emma
+      # Skip the startup check-in with Hugging Face
+      - HF_HUB_DISABLE_TELEMETRY=1
+      # The web player can't send the API key, so it would only get 401s
+      - ENABLE_WEB_PLAYER=false
+    ports:
+      - "${KOKORO_PORT}:8880"
+    restart: unless-stopped
